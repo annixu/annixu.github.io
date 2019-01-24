@@ -1,0 +1,19 @@
+
+
+h1{
+    color:purple;
+    font-size:20px; 
+    margin:0;}
+
+    h1#second-title {
+        color:blue
+    }
+
+.italic-title{
+    font-style: italic;
+}
+
+rect{
+    fill:red;
+    stroke:green; 
+}
