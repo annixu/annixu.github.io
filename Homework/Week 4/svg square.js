@@ -16,31 +16,31 @@ var popRanking2 = [
 //button for 1900
 d3.select('#year-1900').on('click', function(){
 	d3.event.preventDefault();
-	drawNodes(popRanking1);
+	drawSquare(popRanking1);
 });
 
 //button for 2000
 d3.select('#year-2000').on('click', function(){
-	drawNodes(popRanking2);
+	drawSquare(popRanking2);
 });
 
-function drawNodes(data){
+function drawSquare(data){
 
-	var cityNodesUpdate = plot1.selectAll('.node')
+	var cityNodesUpdate = plot1.selectAll('.square')
 		.data(data, function(d){ return d.name }); 
 
 //Enter
-	var cityNodesEnter = cityNodesUpdate.enter()
+	var citySquareEnter = citySquareUpdate.enter()
 		.append('g')
-		.attr('class','node');
+		.attr('class','square');
 
 	cityNodesEnter
-		.append('circle');
+		.append('square');
 
 	cityNodesEnter
 		.append('text');
 
 //Exit
-	var cityNodesExit = cityNodesUpdate.exit()
+	var citySquareExit = citySquareUpdate.exit()
 		.remove();
 }
