@@ -6,13 +6,6 @@ function changeBackgroundColor (white) {
     console.log(white);
 }
 
-var length = 10
-var width = 20
-
-function area (length, width) {
-    console.log (length * width);
-}
-
 var age = 23
 
 function ageInDays () {
