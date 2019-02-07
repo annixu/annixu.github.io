@@ -14,11 +14,11 @@ var popRanking2 = [
 
 var rect = d3.scaleRect().domain([0, 1000000]).range([0,50]);
 
-const margin = {t:50, r:200, b:50, l:200};
-const W = d3.select('.chart').node().clientWidth;
-const H = d3.select('.chart').node().clientHeight;
-const w = W - margin.l - margin.r;
-const h = H - margin.t - margin.b;
+var margin = {t:50, r:200, b:50, l:200};
+var W = d3.select('.chart').node().clientWidth;
+var H = d3.select('.chart').node().clientHeight;
+var w = W - margin.l - margin.r;
+var h = H - margin.t - margin.b;
 
 var plot1 = d3.select("#chart-1")
 	.append('svg')
@@ -40,11 +40,11 @@ d3.select('#year-2000').on('click', function(){
 function drawNodes(data){
 
 
-	const cityNodesUpdate = plot1.selectAll('.node')
+	var cityNodesUpdate = plot1.selectAll('.node')
 		.data(data, function(d){ return d.name }); 
 
 
-	const cityNodesEnter = cityNodesUpdate.enter()
+	var cityNodesEnter = cityNodesUpdate.enter()
 		.append('g')
 		.attr('class','node');
 
@@ -69,6 +69,6 @@ function drawNodes(data){
 		.attr('r', function(d){return scaleRadius(d.population)});
 
 
-	const cityNodesExit = cityNodesUpdate.exit()
+	var cityNodesExit = cityNodesUpdate.exit()
 		.remove();
 }
