@@ -12,38 +12,24 @@ var popRanking2 = [
 	{name: 'Houston', population: 2160821}
 ];
 
-var rect = d3.scaleRect().domain([0, 1000000]).range([0,50]);
 
-var margin = {t:50, r:200, b:50, l:200};
-var W = d3.select('.chart').node().clientWidth;
-var H = d3.select('.chart').node().clientHeight;
-var w = W - margin.l - margin.r;
-var h = H - margin.t - margin.b;
-
-var plot1 = d3.select("#chart-1")
-	.append('svg')
-	.attr('width', W)
-	.attr('height', H)
-	.append('g')
-	.attr('transform', `translate(${margin.l}, ${margin.t})`);
-
-
+//button for 1900
 d3.select('#year-1900').on('click', function(){
 	d3.event.preventDefault();
 	drawNodes(popRanking1);
 });
 
+//button for 2000
 d3.select('#year-2000').on('click', function(){
 	drawNodes(popRanking2);
 });
 
 function drawNodes(data){
 
-
 	var cityNodesUpdate = plot1.selectAll('.node')
 		.data(data, function(d){ return d.name }); 
 
-
+//Enter
 	var cityNodesEnter = cityNodesUpdate.enter()
 		.append('g')
 		.attr('class','node');
@@ -54,21 +40,7 @@ function drawNodes(data){
 	cityNodesEnter
 		.append('text');
 
-
-	cityNodesUpdate.merge(cityNodesEnter)
-		.transition()
-		.duration(2000)
-		.attr('transform', function(d, index){
-			return `translate(${w/3*index}, ${h/2})`
-		});
-
-	cityNodesUpdate.merge(cityNodesEnter)
-		.select('circle')
-		.transition()
-		.duration(2000)
-		.attr('r', function(d){return scaleRadius(d.population)});
-
-
+//Exit
 	var cityNodesExit = cityNodesUpdate.exit()
 		.remove();
 }
