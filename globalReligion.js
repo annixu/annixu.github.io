@@ -1,0 +1,1 @@
+console.log("Global Religion.csv", data)
