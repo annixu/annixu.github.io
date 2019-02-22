@@ -2,13 +2,21 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>Javascript Test Page</title>
+        <title>Let's manipulate some data </title>
 
     </head>
     <body>
-            <h1 id="title">Javascript Class Notes</h1>
+            <h1 id="title">Data Manipulation Page</h1>
             <script src="numbers.js"></script>
      
+            <script>
+            
+            d3.csv("data/Global Religion.csv", function(error,data) {
+                console.log(data);
+            });    
+            
+            
+            </script>
 
     </body>
 </html>
