@@ -1,0 +1,43 @@
+
+h1  {
+    color: purple;
+    font-size:30px; 
+    margin:0;}
+
+    h1#second-title {
+        color:blue
+    }
+
+p   {
+    color: black;
+    }
+
+
+    
+    #outer{
+        background:white;
+    }
+
+   .C1 {
+       fill:red
+   }
+
+   .C2 {
+       fill: green
+   }
+
+   .C3 {
+       fill:orange
+   }
+
+   .C4 {
+       fill:lightskyblue
+   }
+
+   .C5 {
+       fill: brown
+   }
+
+   .C6 {
+       fill: grey
+   }

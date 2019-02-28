@@ -9,11 +9,10 @@ h1{
         color:blue
     }
 
-.italic-title{
-    font-style: italic;
+.paragraph{
+    color:blue;
 }
 
-rect{
-    fill:red;
-    stroke:green; 
+#outer{
+    background: yellow;
 }
