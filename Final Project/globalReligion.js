@@ -1,5 +1,5 @@
    
-   d3.csv("Global Religion.csv", function(data) {
+   d3.csv("globalReligion_country.csv", function(data) {
         console.log("data",data);
         });
         

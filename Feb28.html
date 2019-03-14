@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Let's Make a Map!</title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://unpkg.com/topojson@3"></script>
+  </head>
+  <body>
+    <h1 id="title">Anni's Cool World Map</h1>
+    <svg id="my-map"></svg>
+    <script>
+
+        // full width of screen 
+        var width = window.innerWidth;
+        var height = 700;
+
+        d3.queue()
+            .defer(d3.csv, "data/csvData.csv")
+            .defer(d3.csv, "data/countryNames.csv")
+            .defer(d3.json, "world.json")
+            .awaitAll(function(error, dataArray) {
+
+                var data = dataArray[0];
+                data.forEach(function(d) {
+                    d.export = parseFloat(d.export);
+                });
+                var latestData = data.filter(function(d) {
+                    return d.year == "2018";
+                });
+                var domain = d3.extent(latestData, function(d) {
+                    return d.export;
+                });
+                var colorScale = d3.scaleLinear()
+                    .domain(domain)
+                    .range(["rgb(200, 150, 150)", "rgb(100, 0, 0)"]);
+
+                var names = dataArray[1];
+                var countryTopojson = dataArray[2];
+
+                //            library  Method  argument ()
+                var geoJSON = topojson.feature(countryTopojson, countryTopojson.objects.countries);
+                console.log(geoJSON);
+                geoJSON.features = geoJSON.features.filter(function(country) {
+                    return country.id != "AQ" && country.id != "-99";
+                });
+
+                // setting projection
+                var projection = d3.geoMercator()
+                    .fitSize([width, height], geoJSON);
+
+                // setting path: render path (outline of countries )
+                var path = d3.geoPath()
+                    .projection(projection);
+
+                // 
+                var svg = d3.select("#my-map")
+                // string concatenation 
+                    .attr("width", width + "px")
+                    .attr("height", height + "px");  
+
+                var countries = svg.selectAll("path")
+                    .data(geoJSON.features);
+
+                // drawing the map outline 
+                countries.enter().append("path")
+                    .attr("d", function(feature) {
+                        return path(feature);
+                    })
+                    .attr("fill", function(feature) {
+                        var matches = latestData.filter(function(d) {
+                            return d.country == feature.id.toLowerCase();
+                        });
+                        if (matches.length > 0) {
+                            return colorScale(matches[0].export);
+                        }
+                        else {
+                            return "rgb(200, 200, 200)";
+                        }
+                    }).on("mouseover",function() { })
+
+                var points = [
+                    {"name": "Boston", "coords": [-71.0589, 42.3601]},
+                    {"name": "London", "coords": [-0.1278, 51.5074]},
+                    {"name": "Cape Town", "coords": [18.424055, -33.924870]}
+                ];
+
+                var cities = svg.selectAll("circle")
+                    .data(points);
+
+                cities.enter().append("circle")
+                    .attr("transform", function(d) {
+                        return "translate(" + projection(d.coords) + ")";
+                    })
+                    .attr("r", 10)
+                    .attr("fill", "cornflowerblue");
+
+
+            });
+
+    </script>
+  </body>
+</html>

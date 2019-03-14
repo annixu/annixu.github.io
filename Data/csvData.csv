@@ -1,5 +1,5 @@
-country, export
-usa, 100
-china, 78
-canada, 89
-Singapore, 20
+year,country,export
+2018,us,100
+2017,cn,78
+2018,ca,89
+2017,mx,20

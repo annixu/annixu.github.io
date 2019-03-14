@@ -5,15 +5,15 @@
         <meta charset="utf-8" />
         <title>Global Religion in 65 years</title>
         <script src="https://d3js.org/d3.v4.min.js"></script>
+        <script src="https://unpkg.com/topojson@3"></script> 
+
         <link rel="stylesheet" href="globalReligion.css ">
         <script src="globalReligion.js"></script>
     </head>
 
     <body>
             <h1 id="title">Global Religion in 65 years</h1>
-            <ul id=outer> 
-
-                <p>
+            <p>
                     This project looks into the progression of religious 
                     beliefs of people around the world over a span of 65 years.
                     The data is recorded since 1945 incrementally till 2010, 
@@ -27,48 +27,81 @@
                     beliefs.It would be interesting to see how changes happen most dramatically in five year increments.
                 </p>
 
-                <p>
-                      
-                    .
-                </p>
-                <!-- <li>Christianity</li>
-                <li>Islam</li>
-                <li>Hinduism</li>
-                <li>Buddhism</li>
-                <li>Others</li> -->
-                <!-- <ul>
-                    <li>animinism</li>
-                    <li>zoroastrianism</li>
-                    <li>sikhism</li>
-                    <li>shinto</li>
-                </ul> -->
-                <!-- <li>None</li>
-            </ul> -->
-
-            <svg height="200" width="1500">
+            <svg class="religionClass" height="200" width="1500">
 
                 <text x="220" y="20" fill="blue">Christian</text>
-                <circle class="C1" cx="250px" cy="70px" r="20px" />
+                <circle class="C1" cx="250px" cy="70px" r="15px" />
                 <text x="380" y="20" fill="blue">Islam</text>
-                <circle class="C2"cx="400px" cy="70px" r="20px" />
+                <circle class="C2"cx="400px" cy="70px" r="15px" />
                 <text x="520" y="20" fill="blue">Hinduism</text>
-                <circle class="C3"cx="550px" cy="70px" r="20px" />
+                <circle class="C3"cx="550px" cy="70px" r="15px" />
                 <text x="660" y="20" fill="blue">Buddhism</text>
-                <circle class="C4"cx="700px" cy="70px" r="20px" />
+                <circle class="C4"cx="700px" cy="70px" r="15px" />
                 <text x="830" y="20" fill="blue">Others</text>
-                <circle class="C5"cx="850px" cy="70px" r="20px" />
+                <circle class="C5"cx="850px" cy="70px" r="15px" />
                 <text x="980" y="20" fill="blue">None</text>
-                <circle class="C6"cx="1000px" cy="70px" r="20px" />
-                <!-- <rect x="100" y="140" width="1200" height="600"/> -->
-                
+                <circle class="C6"cx="1000px" cy="70px" r="15px" />
             </svg>
-
-            <img src="https://i.pinimg.com/originals/12/d2/a5/12d2a50596521a073467eb26b9d3a819.png" 
-            alt="World Map" width="1200" height="600" x="100" y="160">
-            
-            <svg height = 100% width =100%>
-                <rect x="0" y="1200" width="524" height="150"/>
-            </svg>
+            <svg id="my-map"></svg>
+        <script>
+                var width = window.innerWidth;
+                var height = 700;
+        
+                d3.queue()
+                    .defer(d3.csv, "globalReligion_country.csv")
+                    .defer(d3.json, "world.json")
+                    .awaitAll(function(error, dataArray) {
+        
+                        var data = dataArray[0];
+                        data.forEach(function(d) {
+                            d.christianity_all = parseFloat(d.christianity_all);
+                        });
+                        var latestData = data.filter(function(d) {
+                            return d.year == "1945";
+                        });
+                        var domain = d3.extent(latestData, function(d) {
+                            return d.christianity_all;
+                        });
+                        var colorScale = d3.scaleLinear()
+                            .domain(domain)
+                            .range(["rgb(200, 150, 150)", "rgb(100, 0, 0)"]);
+        
+                        var countryTopojson = dataArray[1];
+        
+                        var geoJSON = topojson.feature(countryTopojson, countryTopojson.objects.countries);
+                        console.log(geoJSON);
+        
+                        var projection = d3.geoMercator()
+                            .fitSize([width, height], geoJSON);
+        
+                        var path = d3.geoPath()
+                            .projection(projection);
+        
+                        var svg = d3.select("#my-map")
+                            .attr("width", width + "px")
+                            .attr("height", height + "px");  
+        
+                        var countries = svg.selectAll("path")
+                            .data(geoJSON.features);
+        
+                        countries.enter().append("path")
+                            .attr("d", function(feature) {
+                                return path(feature);
+                            })
+                            .attr("fill", function(feature) {
+                                var matches = latestData.filter(function(d) {
+                                    return d.country == feature.id.toLowerCase();
+                                });
+                                if (matches.length > 0) {
+                                    return colorScale(matches[0].export);
+                                }
+                                else {
+                                    return "rgb(200, 200, 200)";
+                                }
+                            }).on("mouseover",function() { })
+        
+                    });
+            </script>
                 
     </body>
 
