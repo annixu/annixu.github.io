@@ -27,7 +27,7 @@
                     beliefs.It would be interesting to see how changes happen most dramatically in five year increments.
                 </p>
 
-            <svg class="religionClass" height="200" width="1500">
+            <svg class="religionClass" height="200">
 
                 <text x="220" y="20" fill="blue">Christian</text>
                 <circle class="C1" cx="250px" cy="70px" r="15px" />
@@ -46,60 +46,221 @@
         <script>
                 var width = window.innerWidth;
                 var height = 700;
-        
+
+                d3.select("svg")
+                    .attr("width",width);
+
+        // drawMap("christianity_all")
                 d3.queue()
-                    .defer(d3.csv, "globalReligion_country.csv")
-                    .defer(d3.json, "world.json")
+                    .defer(d3.csv, "national_accurate.csv")
+                    .defer(d3.json, "world-alpha3.json")
                     .awaitAll(function(error, dataArray) {
         
-                        var data = dataArray[0];
-                        data.forEach(function(d) {
-                            d.christianity_all = parseFloat(d.christianity_all);
+                    var data = dataArray[0];
+                    data.forEach(function(d) {
+                        d.christianity_all = parseFloat(d.christianity_all);
+                    });
+                    var latestData = data.filter(function(d) {
+                        return d.year == "1945";
+                    });
+                    console.log(latestData)
+                    
+                    var domain = d3.extent(latestData, function(d) {
+                        return d.christianity_all;
+                    });
+                    var colorScale = d3.scaleLinear()
+                        .domain(domain)
+                        .range(["rgb(200, 150, 150)", "rgb(100, 0, 0)"]);
+                    console.log(domain)
+    
+                    var countryTopojson = dataArray[1];
+    
+                    var geoJSON = topojson.feature(countryTopojson, countryTopojson.objects.countries);
+                    console.log(geoJSON);
+                    geoJSON.features = geoJSON.features.filter(function(country) {
+                    return country.id != "ATA" && country.id != "-99";
+                    });
+    
+                    var projection = d3.geoMercator()
+                        .fitSize([width, height], geoJSON);
+    
+                    var path = d3.geoPath()
+                        .projection(projection);
+    
+                    var svg = d3.select("#my-map")
+                        .attr("width", width + "px")
+                        .attr("height", height + "px");  
+    
+                    var countries = svg.selectAll("path")
+                        .data(geoJSON.features)  
+                        .enter().append("path")
+                        .attr("d", function(feature) {
+                            return path(feature);
+                        })
+
+         // match country id from the topoJSON onto my data 
+                    .attr("fill", function(feature) {
+                        var matches = latestData.filter(function(d) {
+                            return d["Alpha-3"] == feature.id;
                         });
-                        var latestData = data.filter(function(d) {
-                            return d.year == "1945";
-                        });
+                        if (matches.length > 0) {
+                            return colorScale(matches[0].christianity_all);
+                        }
+                        else {
+                            return "rgb(200, 200, 200)";
+                        }
+                    }).on("mouseover",function() { })
+    
+        // On click for Christians
+                    d3.select(".C1").on("click", function() {
                         var domain = d3.extent(latestData, function(d) {
                             return d.christianity_all;
                         });
                         var colorScale = d3.scaleLinear()
                             .domain(domain)
-                            .range(["rgb(200, 150, 150)", "rgb(100, 0, 0)"]);
-        
-                        var countryTopojson = dataArray[1];
-        
-                        var geoJSON = topojson.feature(countryTopojson, countryTopojson.objects.countries);
-                        console.log(geoJSON);
-        
-                        var projection = d3.geoMercator()
-                            .fitSize([width, height], geoJSON);
-        
-                        var path = d3.geoPath()
-                            .projection(projection);
-        
-                        var svg = d3.select("#my-map")
-                            .attr("width", width + "px")
-                            .attr("height", height + "px");  
-        
-                        var countries = svg.selectAll("path")
-                            .data(geoJSON.features);
-        
-                        countries.enter().append("path")
-                            .attr("d", function(feature) {
-                                return path(feature);
-                            })
-                            .attr("fill", function(feature) {
+                            .range(["rgb(254,229,217)", "rgb(165,15,21)"]);
+
+                        console.log(countries);
+                        
+                        countries.attr("fill", function(feature) {
+                            var matches = latestData.filter(function(d) {
+                                return d["Alpha-3"] == feature.id;
+                            });
+                            console.log(matches);
+                            if (matches.length > 0) {
+                                return colorScale(matches[0].christianity_all);
+                            }
+                            else {
+                                return "rgb(200, 200, 200)";
+                            }
+                        })  
+                    })
+
+        // On click for Islam 
+                        d3.select(".C2").on("click", function() {
+                            var domain = d3.extent(latestData, function(d) {
+                                return d.islam_all;
+                            });
+                            var colorScale = d3.scaleLinear()
+                                .domain(domain)
+                                .range(["rgb(199,233,192)", "rgb(0,109,44)"]);
+
+                            console.log(countries);
+                            
+                            countries.attr("fill", function(feature) {
                                 var matches = latestData.filter(function(d) {
-                                    return d.country == feature.id.toLowerCase();
+                                    return d["Alpha-3"] == feature.id;
                                 });
+                                console.log(matches);
                                 if (matches.length > 0) {
-                                    return colorScale(matches[0].export);
+                                    return colorScale(matches[0].islam_all);
                                 }
                                 else {
                                     return "rgb(200, 200, 200)";
                                 }
-                            }).on("mouseover",function() { })
-        
+                            })
+                        });
+
+        // On click for Hinduism
+                        d3.select(".C3").on("click", function() {
+                            var domain = d3.extent(latestData, function(d) {
+                                return d.hinduism_all;
+                            });
+                            var colorScale = d3.scaleLinear()
+                                .domain(domain)
+                                .range(["rgb(254,227,145)", "rgb(217,95,14)"]);
+
+                            console.log(countries);
+                            
+                            countries.attr("fill", function(feature) {
+                                var matches = latestData.filter(function(d) {
+                                    return d["Alpha-3"] == feature.id;
+                                });
+                                console.log(matches);
+                                if (matches.length > 0) {
+                                    return colorScale(matches[0].hinduism_all);
+                                }
+                                else {
+                                    return "rgb(200, 200, 200)";
+                                }
+                            })
+                        });
+                        
+        // On click for Buddhism
+                        d3.select(".C4").on("click", function() {
+                            var domain = d3.extent(latestData, function(d) {
+                                return d.islam_all;
+                            });
+                            var colorScale = d3.scaleLinear()
+                                .domain(domain)
+                                .range(["rgb(198,219,239)", "rgb(8,81,156)"]);
+
+                            console.log(countries);
+                            
+                            countries.attr("fill", function(feature) {
+                                var matches = latestData.filter(function(d) {
+                                    return d["Alpha-3"] == feature.id;
+                                });
+                                console.log(matches);
+                                if (matches.length > 0) {
+                                    return colorScale(matches[0].islam_all);
+                                }
+                                else {
+                                    return "rgb(200, 200, 200)";
+                                }
+                            })
+                        });
+                        
+        // On click for Others
+                        d3.select(".C5").on("click", function() {
+                            var domain = d3.extent(latestData, function(d) {
+                                return d.islam_all;
+                            });
+                            var colorScale = d3.scaleLinear()
+                                .domain(domain)
+                                .range(["rgb(218,218,235)", "rgb(84,39,143)"]);
+
+                            console.log(countries);
+                            
+                            countries.attr("fill", function(feature) {
+                                var matches = latestData.filter(function(d) {
+                                    return d["Alpha-3"] == feature.id;
+                                });
+                                console.log(matches);
+                                if (matches.length > 0) {
+                                    return colorScale(matches[0].islam_all);
+                                }
+                                else {
+                                    return "rgb(200, 200, 200)";
+                                }
+                            })
+                        });
+
+        // On click for None
+                        d3.select(".C6").on("click", function() {
+                            var domain = d3.extent(latestData, function(d) {
+                                return d.islam_all;
+                            });
+                            var colorScale = d3.scaleLinear()
+                                .domain(domain)
+                                .range(["rgb(247,247,247)", "rgb(99,99,99)"]);
+
+                            console.log(countries);
+                            
+                            countries.attr("fill", function(feature) {
+                                var matches = latestData.filter(function(d) {
+                                    return d["Alpha-3"] == feature.id;
+                                });
+                                console.log(matches);
+                                if (matches.length > 0) {
+                                    return colorScale(matches[0].islam_all);
+                                }
+                                else {
+                                    return "rgb(200, 200, 200)";
+                                }
+                            })
+                        });
+                        
                     });
             </script>
                 
