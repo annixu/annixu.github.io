@@ -6,65 +6,49 @@
         <title>Global Religion in 65 years</title>
         <script src="https://d3js.org/d3.v4.min.js"></script>
         <script src="https://unpkg.com/topojson@3"></script> 
+
         <link rel="stylesheet" href="globalReligion.css ">
         <script src="globalReligion.js"></script>
     </head>
 
-    <body>  
-            <div class='intro'>
-
-                <h1 id="title">Global Religion in 65 years</h1>              
-
-                <p class="body">
+    <body>
+            <h1 id="title">Global Religion in 65 years</h1>
+            <p>
                     This project looks into the progression of religious 
                     beliefs of people around the world over a span of 65 years.
                     The data is recorded since 1945 incrementally till 2010, 
-                    and the data is credited to University of California-Davis, 
-                    and Errol Henderson, Pennsylvania State University, and published by the Correlates of War Project. 
+                    and the source comes from Kaggle. 
                 </p>
                 
-                <p class="body">
-                    For this project, I want to look at the trend of how religious
-                    belief changed over time from 1945 to 2010 across the globe. 
-                    The visualization will show the four biggest religions
-                    (Christianity, Islam. Hinduism and Buddhism), together with 
-                    all other religions and no religious beliefs.It would be interesting 
-                    to see how changes happen most dramatically in five year increments.
+                <p>
+                    For this project, I want to look at the trend of how religious belief changed over time
+                    from 1945 to 2010 across the globe. The visualization will show the four biggest religions
+                    (Christianity, Islam. Hinduism and Buddhism), together with all other religions and no religious
+                    beliefs.It would be interesting to see how changes happen most dramatically in five year increments.
                 </p>
-            </div>
 
-            <svg class="religionClass" height="100">
+            <svg class="religionClass" height="200">
 
                 <text x="220" y="20" fill="blue">Christian</text>
                 <circle class="C1" cx="250px" cy="70px" r="15px" />
-
                 <text x="380" y="20" fill="blue">Islam</text>
                 <circle class="C2"cx="400px" cy="70px" r="15px" />
-
                 <text x="520" y="20" fill="blue">Hinduism</text>
                 <circle class="C3"cx="550px" cy="70px" r="15px" />
-
                 <text x="660" y="20" fill="blue">Buddhism</text>
                 <circle class="C4"cx="700px" cy="70px" r="15px" />
-
                 <text x="830" y="20" fill="blue">Others</text>
                 <circle class="C5"cx="850px" cy="70px" r="15px" />
-
                 <text x="980" y="20" fill="blue">None</text>
                 <circle class="C6"cx="1000px" cy="70px" r="15px" />
             </svg>
-
-        <svg id="my-map"></svg>
-            
+            <svg id="my-map"></svg>
         <script>
-                // .innerWidth*0.75
-                var width = window.innerWidth*0.75;
-                var height = 600;
-
+                var width = window.innerWidth;
+                var height = 700;
                 d3.select("svg")
-                    .attr("width",width)
-                    .attr("transform","scale(0.6)");
-
+                    .attr("width",width);
+        // drawMap("christianity_all")
                 d3.queue()
                     .defer(d3.csv, "national_accurate.csv")
                     .defer(d3.json, "world-alpha3.json")
@@ -73,18 +57,12 @@
                     var data = dataArray[0];
                     data.forEach(function(d) {
                         d.christianity_all = parseFloat(d.christianity_all);
-                        d.islam_all = parseFloat(d.islam_all)
-                        d.hinduism_all = parseFloat(d.hinduism_all)
-                        d.buddhism_all = parseFloat(d.buddhism_all)
-                        d.otherreligion_all = parseFloat(d.otherreligion_all)
-                        d.noreligion_all = parseFloat(d.noreligion_all)
                     });
-                    
                     var latestData = data.filter(function(d) {
                         return d.year == "1945";
                     });
                     console.log(latestData)
-
+                    
                     var domain = d3.extent(latestData, function(d) {
                         return d.christianity_all;
                     });
@@ -95,7 +73,6 @@
     
                     var countryTopojson = dataArray[1];
     
-                // Removing Antarctica
                     var geoJSON = topojson.feature(countryTopojson, countryTopojson.objects.countries);
                     console.log(geoJSON);
                     geoJSON.features = geoJSON.features.filter(function(country) {
@@ -110,8 +87,7 @@
     
                     var svg = d3.select("#my-map")
                         .attr("width", width + "px")
-                        .attr("height", height + "px");
-                        // .attr("transform","scale(0.75)"); 
+                        .attr("height", height + "px");  
     
                     var countries = svg.selectAll("path")
                         .data(geoJSON.features)  
@@ -119,7 +95,6 @@
                         .attr("d", function(feature) {
                             return path(feature);
                         })
-
          // match country id from the topoJSON onto my data 
                     .attr("fill", function(feature) {
                         var matches = latestData.filter(function(d) {
@@ -141,7 +116,6 @@
                         var colorScale = d3.scaleLinear()
                             .domain(domain)
                             .range(["rgb(254,229,217)", "rgb(165,15,21)"]);
-
                         console.log(countries);
                         
                         countries.attr("fill", function(feature) {
@@ -157,7 +131,6 @@
                             }
                         })  
                     })
-
         // On click for Islam 
                         d3.select(".C2").on("click", function() {
                             var domain = d3.extent(latestData, function(d) {
@@ -166,16 +139,13 @@
                             var colorScale = d3.scaleLinear()
                                 .domain(domain)
                                 .range(["rgb(199,233,192)", "rgb(0,109,44)"]);
-
                             console.log(countries);
                             
                             countries.attr("fill", function(feature) {
                                 var matches = latestData.filter(function(d) {
                                     return d["Alpha-3"] == feature.id;
                                 });
-                                if (feature.id == "RUS"){
-                                    console.log(matches);
-                                } 
+                                console.log(matches);
                                 if (matches.length > 0) {
                                     return colorScale(matches[0].islam_all);
                                 }
@@ -184,7 +154,6 @@
                                 }
                             })
                         });
-
         // On click for Hinduism
                         d3.select(".C3").on("click", function() {
                             var domain = d3.extent(latestData, function(d) {
@@ -193,7 +162,6 @@
                             var colorScale = d3.scaleLinear()
                                 .domain(domain)
                                 .range(["rgb(254,227,145)", "rgb(217,95,14)"]);
-
                             console.log(countries);
                             
                             countries.attr("fill", function(feature) {
@@ -213,12 +181,11 @@
         // On click for Buddhism
                         d3.select(".C4").on("click", function() {
                             var domain = d3.extent(latestData, function(d) {
-                                return d.buddhism_all;
+                                return d.islam_all;
                             });
                             var colorScale = d3.scaleLinear()
                                 .domain(domain)
                                 .range(["rgb(198,219,239)", "rgb(8,81,156)"]);
-
                             console.log(countries);
                             
                             countries.attr("fill", function(feature) {
@@ -227,7 +194,7 @@
                                 });
                                 console.log(matches);
                                 if (matches.length > 0) {
-                                    return colorScale(matches[0].buddhism_all);
+                                    return colorScale(matches[0].islam_all);
                                 }
                                 else {
                                     return "rgb(200, 200, 200)";
@@ -238,12 +205,11 @@
         // On click for Others
                         d3.select(".C5").on("click", function() {
                             var domain = d3.extent(latestData, function(d) {
-                                return d.otherreligion_all;
+                                return d.islam_all;
                             });
                             var colorScale = d3.scaleLinear()
                                 .domain(domain)
                                 .range(["rgb(218,218,235)", "rgb(84,39,143)"]);
-
                             console.log(countries);
                             
                             countries.attr("fill", function(feature) {
@@ -252,27 +218,21 @@
                                 });
                                 console.log(matches);
                                 if (matches.length > 0) {
-                                    return colorScale(matches[0].otherreligion_all);
+                                    return colorScale(matches[0].islam_all);
                                 }
                                 else {
                                     return "rgb(200, 200, 200)";
                                 }
                             })
                         });
-
         // On click for None
                         d3.select(".C6").on("click", function() {
-                            colorCountries("noreligion_all");
-                        });
-
-                        function colorCountries(religion) {
                             var domain = d3.extent(latestData, function(d) {
-                                return d[religion];
+                                return d.islam_all;
                             });
                             var colorScale = d3.scaleLinear()
                                 .domain(domain)
-                                .range(["rgb(254,227,145)", "rgb(217,95,14)"]);
-
+                                .range(["rgb(247,247,247)", "rgb(99,99,99)"]);
                             console.log(countries);
                             
                             countries.attr("fill", function(feature) {
@@ -281,13 +241,13 @@
                                 });
                                 console.log(matches);
                                 if (matches.length > 0) {
-                                    return colorScale(matches[0][religion]);
+                                    return colorScale(matches[0].islam_all);
                                 }
                                 else {
                                     return "rgb(200, 200, 200)";
                                 }
                             })
-                        }
+                        });
                         
                     });
             </script>

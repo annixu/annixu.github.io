@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="plot">
+    <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 203.95 121.05">
+      <circle class="foo" cx="15.13" cy="45.39" r="15.13" />
+      <circle class="bar" cx="85.09" cy="30.26" r="30.26" />
+      <circle class="bar" cx="173.68" cy="30.26" r="30.26" />
+      <circle class="bar" cx="36.84" cy="90.79" r="30.26" />
+      <circle class="foo" cx="101.84" cy="91.58" r="10" />
+    </svg>
+  </div>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.2/d3.js"></script>
+<script>
+
+const plot = d3.select("#Layer_1");
+
+plot.selectAll("circle")
+  .on("mouseover",function(d){
+    const currentClass = d3.select(this).attr("class");
+    d3.selectAll(`.${currentClass}`).attr("fill","red")
+  })
+  .on("mouseout",function(d){
+    const currentClass = d3.select(this).attr("class");
+    d3.selectAll(`.${currentClass}`).attr("fill","black")
+  })
+
+
+</script>
+</html>

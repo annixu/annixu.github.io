@@ -1,15 +1,51 @@
+P.blocktext {
+    margin-left: auto;
+    margin-right: auto;
+    width: 8em
+}
 
 h1  {
-    color: purple;
+    color: black;
+    font-family: roboto; 
     font-size:30px; 
     margin:0;}
 
     h1#second-title {
-        color:blue
+        color:grey
     }
+
+.title{
+
+    width: 20%
+}
+
+.body {
+    font-family: roboto;
+    position: relative;
+}
+
+.religionClass {
+    font-family: roboto;
+    color: black;
+}
+
+.intro {
+    /* width:800px; */
+    width:40%;
+    height:auto;
+    /* margin-left: 100px; */
+    margin-left: auto;
+    margin-right: auto;
+    text-anchor: middle;
+    text-align:left;
+
+}
+
 
 p   {
     color: black;
+    /* text-align: left; */
+    
     }
 
 
