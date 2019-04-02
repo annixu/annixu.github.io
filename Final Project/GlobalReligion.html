@@ -11,8 +11,8 @@
     </head>
 
     <body>  
-            <div class='intro'>
 
+            <div id='intro'>               
                 <h1 id="title">Global Religion in 65 years</h1>              
 
                 <p class="body">
@@ -20,7 +20,8 @@
                     beliefs of people around the world over a span of 65 years.
                     The data is recorded since 1945 incrementally till 2010, 
                     and the data is credited to University of California-Davis, 
-                    and Errol Henderson, Pennsylvania State University, and published by the Correlates of War Project. 
+                    and Errol Henderson, Pennsylvania State University, and published 
+                    by the Correlates of War Project. 
                 </p>
                 
                 <p class="body">
@@ -31,40 +32,46 @@
                     all other religions and no religious beliefs.It would be interesting 
                     to see how changes happen most dramatically in five year increments.
                 </p>
+
+                
             </div>
 
-            <svg class="religionClass" height="100">
+            <div class="container">
 
-                <text x="220" y="20" fill="blue">Christian</text>
-                <circle class="C1" cx="250px" cy="70px" r="15px" />
+                <div id="col1">
+                    <svg display="inline", class="religionClass" height="100" width="800">
 
-                <text x="380" y="20" fill="blue">Islam</text>
-                <circle class="C2"cx="400px" cy="70px" r="15px" />
+                        <text x="58.3%" y="20" fill="black" text-anchor="middle">Christian</text>
+                        <circle class="C1" cx="58.3%" cy="70px" r="15px" />
+        
+                        <text x="66.6%" y="20" fill="black" text-anchor="middle">Islam</text>
+                        <circle class="C2"cx="66.6%" cy="70px" r="15px" />
+        
+                        <text x="74.9%" y="20" fill="black" text-anchor="middle">Hinduism</text>
+                        <circle class="C3"cx="74.9%" cy="70px" r="15px" />
+        
+                        <text x="83.2%" y="20" fill="black" text-anchor="middle">Buddhism</text>
+                        <circle class="C4"cx="83.2%" cy="70px" r="15px" />
+        
+                        <text x="91.5%" y="20" fill="black" text-anchor="middle">Others</text>
+                        <circle class="C5" cx="91.5%" cy="70px" r="15px" />
+        
+                        <text x="99.8%" y="20" fill="black" text-anchor="middle">None</text>
+                        <circle class="C6"cx="99.8%" cy="70px" r="15px" />
 
-                <text x="520" y="20" fill="blue">Hinduism</text>
-                <circle class="C3"cx="550px" cy="70px" r="15px" />
+                    </svg>                 
+                </div>
+                               
+                <div id="col2">
+                    <svg display="inline" id="my-map"></svg>
+                </div>
 
-                <text x="660" y="20" fill="blue">Buddhism</text>
-                <circle class="C4"cx="700px" cy="70px" r="15px" />
-
-                <text x="830" y="20" fill="blue">Others</text>
-                <circle class="C5"cx="850px" cy="70px" r="15px" />
-
-                <text x="980" y="20" fill="blue">None</text>
-                <circle class="C6"cx="1000px" cy="70px" r="15px" />
-            </svg>
-
-        <svg id="my-map"></svg>
+        </div>
             
         <script>
-                // .innerWidth*0.75
-                var width = window.innerWidth*0.75;
+                var width = 1000;
                 var height = 600;
-
-                d3.select("svg")
-                    .attr("width",width)
-                    .attr("transform","scale(0.6)");
-
+                
                 d3.queue()
                     .defer(d3.csv, "national_accurate.csv")
                     .defer(d3.json, "world-alpha3.json")
@@ -108,10 +115,11 @@
                     var path = d3.geoPath()
                         .projection(projection);
     
-                    var svg = d3.select("#my-map")
+                    var svg = d3.select("#my-map", display = "inline")
+
                         .attr("width", width + "px")
-                        .attr("height", height + "px");
-                        // .attr("transform","scale(0.75)"); 
+                        .attr("height", height + "px")
+                        .attr("transform","scale(0.6)"); 
     
                     var countries = svg.selectAll("path")
                         .data(geoJSON.features)  

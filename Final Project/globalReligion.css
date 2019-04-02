@@ -1,58 +1,41 @@
-P.blocktext {
-    margin-left: auto;
-    margin-right: auto;
-    width: 8em
+/* disable horizontal scroll */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
-h1  {
-    color: black;
-    font-family: roboto; 
-    font-size:30px; 
-    margin:0;}
-
-    h1#second-title {
-        color:grey
-    }
-
-.title{
-
-    width: 20%
+#intro {
+    display: inline-block;
+    width:40%;
+    height:auto;
+    margin-left: 100px;
+    /* margin-left: auto; */
+    margin-top: 50px;
+    margin-right: auto;
+    text-anchor: middle;
+    text-align:left;
 }
 
 .body {
+    color: black ;
     font-family: roboto;
     position: relative;
 }
 
+/* .column { display: inline-block; width: 50%; white-space: normal; }
+.container { white-space: nowrap; }
+.column_1 { display: inline-block; width: 50%; white-space: normal; } */
+
+
+
 .religionClass {
+    display: inline-block;
     font-family: roboto;
     color: black;
+    margin-left: 10%; 
+    margin-right: 0px; 
+    margin-top: 10px;
 }
-
-.intro {
-    /* width:800px; */
-    width:40%;
-    height:auto;
-    /* margin-left: 100px; */
-    margin-left: auto;
-    margin-right: auto;
-    text-anchor: middle;
-    text-align:left;
-
-}
-
-
-p   {
-    color: black;
-    /* text-align: left; */
-    
-    }
-
-
-    
-    #outer{
-        background:white;
-    }
 
    .C1 {
        fill:red
@@ -78,6 +61,27 @@ p   {
        fill: grey
    }
 
-   .religionClass {
-       margin-top: 10px;
-   }
+
+ /* #outer{
+        background:rgb(255, 255, 255);
+    } */
+    
+   /* P.blocktext {
+    margin-left: auto;
+    margin-right: auto;
+    width: 8em
+} */
+
+/* h1  {
+    color: black;
+    font-family: roboto; 
+    font-size:30px; 
+    margin:0;} */
+
+    /* h1#second-title {
+        color:grey
+    } */
+
+/* .title{
+    width: 20%
+} */
