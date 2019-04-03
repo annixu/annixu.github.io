@@ -5,6 +5,7 @@ html, body {
 }
 
 #intro {
+    position: absolute;
     display: inline-block;
     width:40%;
     height:auto;
@@ -22,21 +23,37 @@ html, body {
     position: relative;
 }
 
-/* .column { display: inline-block; width: 50%; white-space: normal; }
-.container { white-space: nowrap; }
-.column_1 { display: inline-block; width: 50%; white-space: normal; } */
+.container {
+    display:inline-block;
+    width:40%;
+    height:auto;
+    /* margin-left: 100px; */
+    margin-left: 10px;
+    margin-top: 50px;
+    margin-right: auto;
+    text-anchor: middle;
+    text-align:left;
+}
 
+.buttons {
+    display:inline-block;
+}
 
+.maps {
+    display:inline-block;
+}
 
 .religionClass {
     display: inline-block;
     font-family: roboto;
     color: black;
-    margin-left: 10%; 
+    /* margin-left: 10%;  */
+    margin-left: 50%; 
     margin-right: 0px; 
     margin-top: 10px;
 }
 
+/* Button colors */
    .C1 {
        fill:red
    }
@@ -85,3 +102,7 @@ html, body {
 /* .title{
     width: 20%
 } */
+
+/* .column { display: inline-block; width: 50%; white-space: normal; }
+.container { white-space: nowrap; }
+.column_1 { display: inline-block; width: 50%; white-space: normal; } */
