@@ -37,37 +37,35 @@
             <div class="container">
 
                 <div id="buttons">
-                    <svg display="inline", class="religionClass" height="100" width="800">
+                    <svg display="inline", class="religionClass" height="100" width="100%">
 
-                        <text x="80%" y="20" fill="black" text-anchor="middle">Christian</text>
-                        <circle class="C1" cx="80%" cy="70px" r="15px" />
+                        <text x="25%" y="20" fill="black" text-anchor="middle">Christian</text>
+                        <circle class="religionCircle" id="C1" cx="25%" cy="70px" r="15px" />
         
-                        <text x="90%" y="20" fill="black" text-anchor="middle">Islam</text>
-                        <circle class="C2"cx="90%" cy="70px" r="15px" />
+                        <text x="35%" y="20" fill="black" text-anchor="middle">Islam</text>
+                        <circle class="religionCircle" id="C2"cx="35%" cy="70px" r="15px" />
         
-                        <text x="100%" y="20" fill="black" text-anchor="middle">Hinduism</text>
-                        <circle class="C3"cx="100%" cy="70px" r="15px" />
+                        <text x="45%" y="20" fill="black" text-anchor="middle">Hinduism</text>
+                        <circle class="religionCircle" id="C3"cx="45%" cy="70px" r="15px" />
         
-                        <text x="110%" y="20" fill="black" text-anchor="middle">Buddhism</text>
-                        <circle class="C4"cx="110%" cy="70px" r="15px" />
+                        <text x="55%" y="20" fill="black" text-anchor="middle">Buddhism</text>
+                        <circle class="religionCircle" id="C4"cx="55%" cy="70px" r="15px" />
         
-                        <text x="120%" y="20" fill="black" text-anchor="middle">Others</text>
-                        <circle class="C5" cx="120%" cy="70px" r="15px" />
+                        <text x="65%" y="20" fill="black" text-anchor="middle">Others</text>
+                        <circle class="religionCircle" id="C5" cx="65%" cy="70px" r="15px" />
         
-                        <text x="130%" y="20" fill="black" text-anchor="middle">None</text>
-                        <circle class="C6"cx="130%" cy="70px" r="15px" />
+                        <text x="75%" y="20" fill="black" text-anchor="middle">None</text>
+                        <circle class="religionCircle" id="C6"cx="75%" cy="70px" r="15px" />
                     </svg>                 
                 </div>
                                
                 <div id="map">
-                    <svg display="inline" id="my-map"></svg>
+                    <svg display="inline" id="my-map" width="100%"></svg>
                 </div>
-
-            
             </div>
             
         <script>
-                var width = 2000;
+                var width = document.querySelector("#my-map").clientWidth;
                 var height = 600;
                 
                 d3.queue()
@@ -117,7 +115,7 @@
 
                         .attr("width", width + "px")
                         .attr("height", height + "px")
-                        .attr("transform","scale(0.6)"); 
+                        .attr("transform","scale(0.8)"); 
     
                     var countries = svg.selectAll("path")
                         .data(geoJSON.features)  
@@ -139,136 +137,161 @@
                         }
                     }).on("mouseover",function() { })
     
-        // On click for Christians
-                    d3.select(".C1").on("click", function() {
-                        var domain = d3.extent(latestData, function(d) {
-                            return d.christianity_all;
-                        });
-                        var colorScale = d3.scaleLinear()
-                            .domain(domain)
-                            .range(["rgb(254,229,217)", "rgb(165,15,21)"]);
+        // // On click for Christians
+        //             d3.select(".C1").on("click", function() {
+        //                 var domain = d3.extent(latestData, function(d) {
+        //                     return d.christianity_all;
+        //                 });
+        //                 var colorScale = d3.scaleLinear()
+        //                     .domain(domain)
+        //                     .range(["rgb(254,229,217)", "rgb(165,15,21)"]);
 
-                        console.log(countries);
+        //                 console.log(countries);
                         
-                        countries.attr("fill", function(feature) {
-                            var matches = latestData.filter(function(d) {
-                                return d["Alpha-3"] == feature.id;
-                            });
-                            console.log(matches);
-                            if (matches.length > 0) {
-                                return colorScale(matches[0].christianity_all);
+        //                 countries.attr("fill", function(feature) {
+        //                     var matches = latestData.filter(function(d) {
+        //                         return d["Alpha-3"] == feature.id;
+        //                     });
+        //                     console.log(matches);
+        //                     if (matches.length > 0) {
+        //                         return colorScale(matches[0].christianity_all);
+        //                     }
+        //                     else {
+        //                         return "rgb(200, 200, 200)";
+        //                     }
+        //                 })  
+        //             })
+
+        // // On click for Islam 
+        //                 d3.select(".C2").on("click", function() {
+        //                     var domain = d3.extent(latestData, function(d) {
+        //                         return d.islam_all;
+        //                     });
+        //                     var colorScale = d3.scaleLinear()
+        //                         .domain(domain)
+        //                         .range(["rgb(199,233,192)", "rgb(0,109,44)"]);
+
+        //                     console.log(countries);
+                            
+        //                     countries.attr("fill", function(feature) {
+        //                         var matches = latestData.filter(function(d) {
+        //                             return d["Alpha-3"] == feature.id;
+        //                         });
+        //                         if (feature.id == "RUS"){
+        //                             console.log(matches);
+        //                         } 
+        //                         if (matches.length > 0) {
+        //                             return colorScale(matches[0].islam_all);
+        //                         }
+        //                         else {
+        //                             return "rgb(200, 200, 200)";
+        //                         }
+        //                     })
+        //                 });
+
+        // // On click for Hinduism
+        //                 d3.select(".C3").on("click", function() {
+        //                     var domain = d3.extent(latestData, function(d) {
+        //                         return d.hinduism_all;
+        //                     });
+        //                     var colorScale = d3.scaleLinear()
+        //                         .domain(domain)
+        //                         .range(["rgb(254,227,145)", "rgb(217,95,14)"]);
+
+        //                     console.log(countries);
+                            
+        //                     countries.attr("fill", function(feature) {
+        //                         var matches = latestData.filter(function(d) {
+        //                             return d["Alpha-3"] == feature.id;
+        //                         });
+        //                         console.log(matches);
+        //                         if (matches.length > 0) {
+        //                             return colorScale(matches[0].hinduism_all);
+        //                         }
+        //                         else {
+        //                             return "rgb(200, 200, 200)";
+        //                         }
+        //                     })
+        //                 });
+                        
+        // // On click for Buddhism
+        //                 d3.select(".C4").on("click", function() {
+        //                     var domain = d3.extent(latestData, function(d) {
+        //                         return d.buddhism_all;
+        //                     });
+        //                     var colorScale = d3.scaleLinear()
+        //                         .domain(domain)
+        //                         .range(["rgb(198,219,239)", "rgb(8,81,156)"]);
+
+        //                     console.log(countries);
+                            
+        //                     countries.attr("fill", function(feature) {
+        //                         var matches = latestData.filter(function(d) {
+        //                             return d["Alpha-3"] == feature.id;
+        //                         });
+        //                         console.log(matches);
+        //                         if (matches.length > 0) {
+        //                             return colorScale(matches[0].buddhism_all);
+        //                         }
+        //                         else {
+        //                             return "rgb(200, 200, 200)";
+        //                         }
+        //                     })
+        //                 });
+                        
+        // // On click for Others
+        //                 d3.select(".C5").on("click", function() {
+        //                     var domain = d3.extent(latestData, function(d) {
+        //                         return d.otherreligion_all;
+        //                     });
+        //                     var colorScale = d3.scaleLinear()
+        //                         .domain(domain)
+        //                         .range(["rgb(218,218,235)", "rgb(84,39,143)"]);
+
+        //                     console.log(countries);
+                            
+        //                     countries.attr("fill", function(feature) {
+        //                         var matches = latestData.filter(function(d) {
+        //                             return d["Alpha-3"] == feature.id;
+        //                         });
+        //                         console.log(matches);
+        //                         if (matches.length > 0) {
+        //                             return colorScale(matches[0].otherreligion_all);
+        //                         }
+        //                         else {
+        //                             return "rgb(200, 200, 200)";
+        //                         }
+        //                     })
+        //                 });
+
+        // // On click for None
+        //                 d3.select(".C6").on("click", function() {
+        //                     colorCountries("noreligion_all");
+        //                 });
+
+                        d3.selectAll(".religionCircle").on("click", function() {
+                            let id = d3.select(this).attr("id");
+                            var religion;
+                            if(id === "C6") {
+                                religion = "noreligion_all";
+                            } else if(id === "C1") {
+                                religion = "christianity_all";
+                            } else if(id === "C1") {
+                                religion = "christianity_all";
                             }
-                            else {
-                                return "rgb(200, 200, 200)";
+                            else if (id === "C2") {
+                                religion = "islam_all";
                             }
-                        })  
-                    })
-
-        // On click for Islam 
-                        d3.select(".C2").on("click", function() {
-                            var domain = d3.extent(latestData, function(d) {
-                                return d.islam_all;
-                            });
-                            var colorScale = d3.scaleLinear()
-                                .domain(domain)
-                                .range(["rgb(199,233,192)", "rgb(0,109,44)"]);
-
-                            console.log(countries);
-                            
-                            countries.attr("fill", function(feature) {
-                                var matches = latestData.filter(function(d) {
-                                    return d["Alpha-3"] == feature.id;
-                                });
-                                if (feature.id == "RUS"){
-                                    console.log(matches);
-                                } 
-                                if (matches.length > 0) {
-                                    return colorScale(matches[0].islam_all);
-                                }
-                                else {
-                                    return "rgb(200, 200, 200)";
-                                }
-                            })
-                        });
-
-        // On click for Hinduism
-                        d3.select(".C3").on("click", function() {
-                            var domain = d3.extent(latestData, function(d) {
-                                return d.hinduism_all;
-                            });
-                            var colorScale = d3.scaleLinear()
-                                .domain(domain)
-                                .range(["rgb(254,227,145)", "rgb(217,95,14)"]);
-
-                            console.log(countries);
-                            
-                            countries.attr("fill", function(feature) {
-                                var matches = latestData.filter(function(d) {
-                                    return d["Alpha-3"] == feature.id;
-                                });
-                                console.log(matches);
-                                if (matches.length > 0) {
-                                    return colorScale(matches[0].hinduism_all);
-                                }
-                                else {
-                                    return "rgb(200, 200, 200)";
-                                }
-                            })
-                        });
-                        
-        // On click for Buddhism
-                        d3.select(".C4").on("click", function() {
-                            var domain = d3.extent(latestData, function(d) {
-                                return d.buddhism_all;
-                            });
-                            var colorScale = d3.scaleLinear()
-                                .domain(domain)
-                                .range(["rgb(198,219,239)", "rgb(8,81,156)"]);
-
-                            console.log(countries);
-                            
-                            countries.attr("fill", function(feature) {
-                                var matches = latestData.filter(function(d) {
-                                    return d["Alpha-3"] == feature.id;
-                                });
-                                console.log(matches);
-                                if (matches.length > 0) {
-                                    return colorScale(matches[0].buddhism_all);
-                                }
-                                else {
-                                    return "rgb(200, 200, 200)";
-                                }
-                            })
-                        });
-                        
-        // On click for Others
-                        d3.select(".C5").on("click", function() {
-                            var domain = d3.extent(latestData, function(d) {
-                                return d.otherreligion_all;
-                            });
-                            var colorScale = d3.scaleLinear()
-                                .domain(domain)
-                                .range(["rgb(218,218,235)", "rgb(84,39,143)"]);
-
-                            console.log(countries);
-                            
-                            countries.attr("fill", function(feature) {
-                                var matches = latestData.filter(function(d) {
-                                    return d["Alpha-3"] == feature.id;
-                                });
-                                console.log(matches);
-                                if (matches.length > 0) {
-                                    return colorScale(matches[0].otherreligion_all);
-                                }
-                                else {
-                                    return "rgb(200, 200, 200)";
-                                }
-                            })
-                        });
-
-        // On click for None
-                        d3.select(".C6").on("click", function() {
-                            colorCountries("noreligion_all");
+                            else if (id === "C3") {
+                                religion = "hinduism_all";
+                            }
+                            else if (id === "C4") {
+                                religion = "buddhism_all";
+                            }
+                            else if (id === "C5") {
+                                religion = "otherreligion_all";
+                            }
+                            colorCountries(religion);
                         });
 
                         function colorCountries(religion) {
@@ -276,8 +299,23 @@
                                 return d[religion];
                             });
                             var colorScale = d3.scaleLinear()
-                                .domain(domain)
-                                .range(["rgb(254,227,145)", "rgb(217,95,14)"]);
+                                .domain(domain);
+
+                            if(religion === "christianity_all") {
+                                colorScale.range(["rgb(254,229,217)", "rgb(165,15,21)"]);
+                            } else if(religion === "islam_all") {
+                                colorScale.range(["rgb(199,233,192)", "rgb(0,109,44)"]);
+                            } else if(religion === "hinduism_all") {
+                                colorScale .range(["rgb(254,227,145)", "rgb(217,95,14)"]);
+                            } else if(religion === "buddhism_all") {
+                                colorScale.range(["rgb(198,219,239)", "rgb(8,81,156)"]);
+                            } else if(religion === "otherreligion_all") {
+                                colorScale.range(["rgb(218,218,235)", "rgb(84,39,143)"]);
+                            } else if(religion === "noreligion_all") {
+                                colorScale.range(["rgb(218,218,235)", "rgb(84,39,143)"]);
+
+
+                            }
 
                             console.log(countries);
                             
@@ -301,3 +339,7 @@
     </body>
 
 </html>
+
+
+
+<!-- ["rgb(254,227,145)", "rgb(217,95,14)"]); -->
