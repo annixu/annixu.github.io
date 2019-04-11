@@ -21,6 +21,13 @@ html, body {
     box-sizing: border-box;
 }
 
+#tooltip{
+    position: absolute;
+    visibility: hidden;
+    background-color: rgba(255,255,255,0.8);
+    padding: 5px;
+}
+
 .body {
     color: black ;
     font-family: roboto;
@@ -57,6 +64,10 @@ html, body {
     margin-left: 0px; 
     margin-right: 0px; 
     margin-top: 10px;
+}
+
+.religionCircle {
+    cursor: pointer;
 }
 
 /* Button colors */
