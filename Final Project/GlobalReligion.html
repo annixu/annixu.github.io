@@ -10,6 +10,9 @@
         <script src="globalReligion.js"></script>
     </head>
 
+    <!-- Inspiration -->
+    <!-- https://projects.fivethirtyeight.com/mortality-rates-united-states/#1992 -->
+
     <body>  
             <div id='intro'>               
                 <h1 id="title">Global Religion in 65 years</h1>              
@@ -58,6 +61,16 @@
                     </svg>                 
                 </div>
 
+                <div class="slidecontainer">
+                    <input type="range" min="1945" max="2010" value="50" class="slider" id="slider">
+                  </div>
+
+                  <div class="range-slider" data-slider data-options="step: 50;">
+                    <span class="range-slider-handle" role="slider" tabindex="0"></span>
+                    <span class="range-slider-active-segment"></span>
+                    <input type="hidden">
+                  </div>
+
                 <!-- Hover Event on religion buttons -->
                 <script>
                     d3.selectAll(".religionCircle")
@@ -79,6 +92,8 @@
         <script>
                 var width = document.querySelector("#my-map").clientWidth;
                 var height = 600;
+
+                var format = d3.format(",");
                 
                 d3.queue()
                     .defer(d3.csv, "national_accurate.csv")
@@ -110,7 +125,7 @@
                     console.log(domain)
     
                     var countryTopojson = dataArray[1];
-    
+
                 // Removing Antarctica
                     var geoJSON = topojson.feature(countryTopojson, countryTopojson.objects.countries);
                     console.log(geoJSON);
@@ -118,7 +133,10 @@
                     return country.id != "ATA" && country.id != "-99";
                     });
     
-                    var projection = d3.geoMercator()
+                    // var projection = d3.geoMercator()
+                    //     .fitSize([width, height], geoJSON);
+
+                    var projection = d3.geoNaturalEarth1()
                         .fitSize([width, height], geoJSON);
     
                     var path = d3.geoPath()
@@ -147,13 +165,13 @@
                                 tooltip.style("top", d3.event.pageY+10+"px")
                                         .style("left", d3.event.pageX+10+"px")
                                         .style("visibility","visible")
-                                        .html(d.properties.name + "<br>" + populationData[selectedReligion]);
+                                        .html(d.properties.name + "<br>" + format(populationData[selectedReligion]));
                             }
                         }).on("mouseout", function() {
                             tooltip.style("visibility","hidden");
                         })
 
-         // match country id from the topoJSON onto my data 
+                // match country id from the topoJSON onto my data 
                     .attr("fill", function(feature) {
                         var matches = latestData.filter(function(d) {
                             return d["Alpha-3"] == feature.id;
@@ -200,6 +218,7 @@
                             var domain = d3.extent(latestData, function(d) {
                                 return d[religion];
                             });
+                            console.log(domain)
                             var colorScale = d3.scaleLinear()
                                 .domain(domain);
 
@@ -232,14 +251,8 @@
                                 }
                             })
                         }
-                        
-
-
                     });
             </script>
-
-                
-    </body>
 
 </html>
 
