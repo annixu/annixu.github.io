@@ -1,6 +1,5 @@
 /* disable horizontal scroll */
 
-
 html, body {
     max-width: 100%;
     overflow-x: hidden;
@@ -69,7 +68,6 @@ html, body {
 
 .buttons {
     display:inline-block;
-
 }
 
 .maps {

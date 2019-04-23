@@ -1,9 +1,26 @@
-body{
+form {
+    margin-top: 25px;
+    text-align: start;  
+  }
+  
+  input {
+    width: 40%;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  output {
+    display: block;
+    margin: 25px auto;
+    font-size:2em;
+  }
+
+  /* body{
     background-color: blanchedalmond;
     padding: 0;
     margin: 0;
-}
-.years {
+} */
+/* .years {
     width: 30%;
     height: 20px;
     position: absolute;
@@ -14,8 +31,8 @@ body{
     right:0;
 }
 .slider {
-    width: 100%;
-    height: 15px;
+    width: 50%;
+    height: 10px;
     -webkit-appearance: none;
     border-radius: 5px; 
     background-color: black
@@ -41,6 +58,6 @@ body{
     left: 0;
     right:0;
     top:100px;
-}
+} */
 
-    
+/* stack overflow solution */
