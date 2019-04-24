@@ -7,17 +7,19 @@ html, body {
     padding: 0px;
 }
 #title {
-    font-family: roboto;
+    font-family: Cinzel;
+    font-size: 25px;
 }
 
 #intro {
     /* position: absolute; */
     display: inline-block;
+    background-color: black;
+    -webkit-text-fill-color:white;
     width:40%;
     height:auto;
     vertical-align: top;
     padding-left: 10%;
-    /* margin-left: auto; */
     margin-top: 50px;
     margin-right: 0px;
     text-anchor: middle;
@@ -29,8 +31,28 @@ html, body {
     position: absolute;
     visibility: hidden;
     background-color: rgba(255,255,255,0.8);
+    border-style: solid;
+    border-color: black;
     padding: 5px;
     font-family: roboto;
+}
+
+#slider {
+    width: 100%;
+    /* scroll-snap-points-x:"True" */
+    scroll-snap-stop: true; 
+}
+
+#sliderYear{
+    width : 100%;
+}
+
+#year1945{
+    float: left;
+}
+
+#year2010{
+    float: right;
 }
 
 /* .slider{

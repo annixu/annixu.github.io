@@ -6,6 +6,7 @@
         <title>Global Religion in 65 years</title>
         <script src="https://d3js.org/d3.v4.min.js"></script>
         <script src="https://unpkg.com/topojson@3"></script> 
+        <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
         <link rel="stylesheet" href="globalReligion.css ">
         <script src="globalReligion.js"></script>
         <link rel="stylesheet" href="sliderStyle.css">
@@ -33,10 +34,10 @@
                 
                 <p class="body">
                     For this project, I want to look at the trend of how religious
-                    belief changed over time from 1945 to 2010 across the globe. 
+                    population changed over time from 1945 to 2010 across the globe. 
                     The visualization will show the four biggest religions
                     (Christianity, Islam. Hinduism and Buddhism), together with 
-                    all other religions and no religious beliefs.It would be interesting 
+                    all other religions and no religious beliefs. It would be interesting 
                     to see how changes happen most dramatically in five year increments.
                 </p>  
             </div>
@@ -46,49 +47,25 @@
                 <div id="buttons">
                     <svg display="inline", class="religionClass" height="100" width="100%">
 
-                        <text x="25%" y="20" fill="black" text-anchor="middle">Christian</text>
-                        <circle class="religionCircle" id="C1" cx="25%" cy="70px" r="15px" />
+                        <text id="christian" class="textLabel" x="15%" y="25" fill="black" text-anchor="middle">Christian</text>
+                        <circle class="religionCircle" id="C1" cx="15%" cy="70px" r="15px" />
         
-                        <text x="35%" y="20" fill="black" text-anchor="middle">Islam</text>
-                        <circle class="religionCircle" id="C2"cx="35%" cy="70px" r="15px" />
+                        <text id="islam" class="textLabel" x="30%" y="25" fill="black" text-anchor="middle">Islam</text>
+                        <circle class="religionCircle" id="C2"cx="30%" cy="70px" r="15px" />
         
-                        <text x="45%" y="20" fill="black" text-anchor="middle">Hinduism</text>
+                        <text id="hinduism" class="textLabel" x="45%" y="25" fill="black" text-anchor="middle">Hinduism</text>
                         <circle class="religionCircle" id="C3"cx="45%" cy="70px" r="15px" />
         
-                        <text x="55%" y="20" fill="black" text-anchor="middle">Buddhism</text>
-                        <circle class="religionCircle" id="C4"cx="55%" cy="70px" r="15px" />
+                        <text id="buddhism" class="textLabel" x="60%" y="25" fill="black" text-anchor="middle">Buddhism</text>
+                        <circle class="religionCircle" id="C4"cx="60%" cy="70px" r="15px" />
         
-                        <text x="65%" y="20" fill="black" text-anchor="middle">Others</text>
-                        <circle class="religionCircle" id="C5" cx="65%" cy="70px" r="15px" />
+                        <text id="others" class="textLabel" x="75%" y="25" fill="black" text-anchor="middle">Others</text>
+                        <circle class="religionCircle" id="C5" cx="75%" cy="70px" r="15px" />
         
-                        <text x="75%" y="20" fill="black" text-anchor="middle">No religion</text>
-                        <circle class="religionCircle" id="C6"cx="75%" cy="70px" r="15px" />
+                        <text id="none" class="textLabel" x="90%" y="25" fill="black" text-anchor="middle">No religion</text>
+                        <circle class="religionCircle" id="C6"cx="90%" cy="70px" r="15px" />
                     </svg>                 
                 </div>
-
-                <div class="slidecontainer" title="Choose Year">
-                    <input type="range" min="1945" max="2010" value="50" class="slider" 
-                    list="tickmarks" title="year" id="slider">
-                    
-                    <datalist id="tickmarks" style="margin-bottom: 50px">
-                    
-                        <option value="1945">1945</option>
-                        <option value="1950">1950</option>
-                        <option value="1955">1955</option>
-                        <option value="1960">1960</option>
-                        <option value="1965">1965</option>
-                        <option value="1970">1970</option>
-                        <option value="1975">1975</option>
-                        <option value="1980">1980</option>
-                        <option value="1985">1985</option>
-                        <option value="1990">1990</option>
-                        <option value="1995">1995</option>
-                        <option value="2000">2000</option>
-                        <option value="2005">2005</option>
-                        <option value="2010">2010</option>
-
-                    </datalist>
-                  </div>
 
                   <!-- <span>1945</span>
                     <span style="float: middle;">2010</span>
@@ -97,17 +74,10 @@
                   <div class="range-slider" data-slider data-options="step: 50;">
                     <span class="range-slider-handle" role="slider" tabindex="0"></span>
                     <span class="range-slider-active-segment"></span>
+                    
                     <input type="hidden">
                   </div> 
 
-                  <script>
-                      var selectedYear;
-                      d3.select(".slider")
-                      .on("change", function(){
-                        selectedYear = d3.select(this).node().value;
-                        console.log(selectedYear);
-                        })
-                  </script>
 
                 <!-- Hover Event on religion buttons -->
                 <script>
@@ -124,12 +94,51 @@
                     <svg display="inline" id="my-map" width="100%"></svg>
                 </div>
 
+                <div class="slidecontainer" title="Choose Year">
+                        <input type="range" min="1945" max="2010" value="50" class="slider" 
+                        list="tickmarks" title="year" id="slider">
+                        <!-- <Slider Minimum="1945" Maximum="2010" IsSnapToTickEnabled="True" Ticks="1945,1950,2010" /> -->
+                        
+                        <datalist id="tickmarks" style="margin-bottom: 50px">
+                        
+                            <option value="1945">1945</option>
+                            <option value="1950">1950</option>
+                            <option value="1955">1955</option>
+                            <option value="1960">1960</option>
+                            <option value="1965">1965</option>
+                            <option value="1970">1970</option>
+                            <option value="1975">1975</option>
+                            <option value="1980">1980</option>
+                            <option value="1985">1985</option>
+                            <option value="1990">1990</option>
+                            <option value="1995">1995</option>
+                            <option value="2000">2000</option>
+                            <option value="2005">2005</option>
+                            <option value="2010">2010</option>
+                        </datalist>
+                      </div>
+
+                      <div id="sliderYear">
+                          <div id="year1945">1945</div>
+                          <div id="year2010">2010</div>
+                      </div>
+
                 <div id="tooltip"></div>
             </div>
-             
+            <script>
+                    var selectedYear;
+                    d3.select(".slider")
+                    .on("input", function(){
+                      selectedYear = d3.select(this).node().value;
+                      console.log(selectedYear);
+                      latestData = data.filter(function(d) {
+                                return d.year == selectedYear;
+                            });
+                      })
+                </script>
         <script>
                 var width = document.querySelector("#my-map").clientWidth;
-                var height = 600;
+                var height = 400;
 
                 var format = d3.format(",");
                 
@@ -137,7 +146,7 @@
                     .defer(d3.csv, "national_accurate.csv")
                     .defer(d3.json, "world-alpha3.json")
                     .awaitAll(function(error, dataArray) {
-        
+    
                     var data = dataArray[0];
                     data.forEach(function(d) {
                         d.christianity_all = parseFloat(d.christianity_all);
@@ -149,7 +158,7 @@
                     });
                     
                     var latestData = data.filter(function(d) {
-                        return d.year == "2000";
+                        return d.year == "1945";
                     });
                     var selectedReligion = "christianity_all";
                     console.log(latestData)
@@ -160,8 +169,13 @@
                     var colorScale = d3.scaleLinear()
                         // .domain(domain)
                         .domain([0,1])
-                        .range(["rgb(200, 150, 150)", "rgb(100, 0, 0)"]);
+                        .range(["rgb(255,245,240)", "rgb(103,0,13)"]);
                     console.log(domain)
+
+                // POTENCIAL COLORS FOR LANDING PAGE WORLD MAP
+                    // ["rgb(200, 150, 150)", "rgb(100, 0, 0)"]
+                    // ["rgb(255,245,240)", "rgb(103,0,13)"]
+                    // ["rgb(0, 0, 0)", "rgb(0, 0, 0)"]
     
                     var countryTopojson = dataArray[1];
 
@@ -184,8 +198,7 @@
                     var svg = d3.select("#my-map", display = "inline")
 
                         .attr("width", width + "px")
-                        .attr("height", height + "px")
-                        .attr("transform","scale(0.8)"); 
+                        .attr("height", height + "px");
     
                     var tooltip = d3.select("#tooltip");
                     
@@ -204,7 +217,8 @@
                                 tooltip.style("top", d3.event.pageY+10+"px")
                                         .style("left", d3.event.pageX+10+"px")
                                         .style("visibility","visible")
-                                        .html(d.properties.name + "<br>" + format(populationData[selectedReligion]));
+                                        .html(d.properties.name + "<br>Population: " + format(populationData[selectedReligion]) 
+                                        + "<br>Percentage: " + Math.round(populationData[selectedReligion]/populationData.population*1000)/10 + "%");
                             }
                         }).on("mouseout", function() {
                             tooltip.style("visibility","hidden");
@@ -221,7 +235,8 @@
                         else {
                             return "rgb(200, 200, 200)";
                         }
-                    });
+                    }).attr("transform","translate(0,50)"); 
+
 
                     d3.selectAll(".religionCircle").on("click", function() {
                             // colorCountries(this.id);
@@ -232,26 +247,34 @@
                             });
                             let id = d3.select(this).attr("id");
                             var religion;
+                            var textLabel;
                             if(id === "C6") {
+                                textLabel = "none";
                                 religion = "noreligion_all";
                             } else if(id === "C1") {
+                                textLabel = "christian";
                                 religion = "christianity_all";
-                            } else if(id === "C1") {
-                                religion = "christianity_all";
-                            }
-                            else if (id === "C2") {
+                            }else if (id === "C2") {
+                                textLabel = "islam";
                                 religion = "islam_all";
                             }
                             else if (id === "C3") {
+                                textLabel = "hinduism";
                                 religion = "hinduism_all";
                             }
                             else if (id === "C4") {
+                                textLabel = "buddhism";
                                 religion = "buddhism_all";
                             }
                             else if (id === "C5") {
+                                textLabel = "others";
                                 religion = "otherreligion_all";
                             }
                             selectedReligion = religion;
+                            d3.selectAll(".textLabel")
+                            .style("font-weight", "normal");
+                            d3.select("#" + textLabel)
+                            .style("font-weight", "bold");
                             colorCountries(religion);
                         });
 

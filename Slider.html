@@ -75,6 +75,22 @@
                         <option value="2010">2010</option>
 
                     </datalist>
+
+                    <!-- steven:line 129 for change religion map with slider -->
+                    <script>
+                            var selectedYear;
+                            d3.select(".slider")
+                            .on("input", function(){
+                              selectedYear = d3.select(this).node().value;
+        
+                              console.log(selectedYear);
+                              latestData = data.filter(function(d) {
+                                        return d.year == selectedYear;
+                                    });
+                                    // SOMETHING HAPPENS HERE...
+                                    colorCountries(religion);
+                              })
+                        </script>
           
     </body>
 </html>
