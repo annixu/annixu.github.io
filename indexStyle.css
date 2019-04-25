@@ -21,6 +21,8 @@ a:link, a:visited {
     text-align: center;
     text-decoration: none;
     display: inline-block;
+    font-family: roboto; 
+    font-size: 18px;
   }
   
   a:hover, a:active {
