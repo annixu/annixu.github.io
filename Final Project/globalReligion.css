@@ -5,27 +5,14 @@ html, body {
     overflow-x: hidden;
     margin: 0px;
     padding: 0px;
+    height: 100%;
 }
 #title {
     font-family: Cinzel;
     font-size: 25px;
 }
 
-#intro {
-    /* position: absolute; */
-    display: inline-block;
-    background-color: black;
-    -webkit-text-fill-color:white;
-    width:40%;
-    height:auto;
-    vertical-align: top;
-    padding-left: 10%;
-    margin-top: 50px;
-    margin-right: 0px;
-    text-anchor: middle;
-    text-align:left;
-    box-sizing: border-box;
-}
+
 
 #tooltip{
     position: absolute;
@@ -35,6 +22,10 @@ html, body {
     border-color: black;
     padding: 5px;
     font-family: roboto;
+}
+
+.slide-container {
+    padding: 0px 50px;
 }
 
 #slider {
@@ -77,15 +68,44 @@ html, body {
 .container {
     display:inline-block;
     width:55%;
-    height:auto;
+    height:100%;
     padding:10px;
     /* margin-left: 100px; */
     /* margin-left: 10px; */
-    margin-top: 50px;
+    padding-top: 50px;
     margin-right: 0px;
     text-anchor: middle;
     text-align:left;
     box-sizing: border-box;
+}
+
+#container {
+    display:flex;
+    height: 100%;
+}
+
+#right-container {
+    flex: 3 1 0 !important;
+}
+
+#left-container {
+    flex: 2 1 0 !important;
+    /* position: absolute; */
+    display: inline-block;
+    background-color: black;
+    -webkit-text-fill-color:white;
+    height:auto;
+    vertical-align: top;
+    text-anchor: middle;
+    text-align:left;
+    box-sizing: border-box;
+}
+
+#intro {
+    padding-left: 20%;
+    margin-top: 90px;
+    margin-right: 40px;
+    /* width: 350px; */
 }
 
 .buttons {
