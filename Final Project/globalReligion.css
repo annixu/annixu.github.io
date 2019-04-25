@@ -64,6 +64,13 @@ html, body {
     position: relative;
 }
 
+.date {
+    font-family: roboto;
+    font-size: 14px;
+    font-style: italic;
+    position: relative; 
+}
+
 .container {
     display:inline-block;
     width:55%;
