@@ -44,9 +44,9 @@
                     The visualization shows the four biggest religions
                     (Christianity, Islam. Hinduism and Buddhism), together with
                     other religions and none religious beliefs. It would be interesting
-                    to see how changes happen most dramatically in five year increments 
+                    to see how changes happen most dramatically in five year increments
                     and countries/continents that suddenly became intensely religious over
-                    a short period of time. 
+                    a short period of time.
                 </p>
             </div>
         </div>
@@ -108,8 +108,8 @@
             </div>
 
             <div class="slide-container" title="Choose Year">
-                <input type="range" min="1945" max="2010" value="50" class="slider" list="tickmarks" title="year"
-                    id="slider">
+                <input type="range" min="1945" max="2010" value="1945" class="slider" list="tickmarks" title="year"
+                    step="5" id="slider">
                 <!-- <Slider Minimum="1945" Maximum="2010" IsSnapToTickEnabled="True" Ticks="1945,1950,2010" /> -->
 
                 <div id="sliderYear">
@@ -139,16 +139,21 @@
             <div id="tooltip"></div>
         </div>
     </div>
+
     <script>
-        var selectedYear;
-        d3.select(".slider")
-            .on("input", function () {
-                selectedYear = d3.select(this).node().value;
-                console.log(selectedYear);
-                latestData = data.filter(function (d) {
-                    return d.year == selectedYear;
-                });
-            })
+        var selectedYear = "1945";
+        var selectedReligion = "christianity_all";
+
+        // d3.select(".slider")
+        //     .on("input", function () {
+        //         selectedYear = d3.select(this).node().value;
+
+        //         console.log(selectedYear);
+        //         latestData = data.filter(function (d) {
+        //             return d.year == selectedYear;
+        //         });
+        //         colorCountries(religion);
+        //     })
     </script>
     <script>
         var width = document.querySelector("#my-map").clientWidth;
@@ -162,6 +167,18 @@
             .awaitAll(function (error, dataArray) {
 
                 var data = dataArray[0];
+
+            d3.select(".slider")
+            .on("input", function () {
+                selectedYear = d3.select(this).node().value;
+
+                console.log(selectedYear);
+                latestData = data.filter(function (d) {
+                    return d.year == selectedYear;
+                });
+                colorCountries(selectedReligion);
+            })
+
                 data.forEach(function (d) {
                     d.christianity_all = parseFloat(d.christianity_all);
                     d.islam_all = parseFloat(d.islam_all)
