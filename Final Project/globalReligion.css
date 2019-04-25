@@ -12,8 +12,6 @@ html, body {
     font-size: 25px;
 }
 
-
-
 #tooltip{
     position: absolute;
     visibility: hidden;
@@ -36,6 +34,7 @@ html, body {
 
 #sliderYear{
     width : 100%;
+    font-family:roboto;
 }
 
 #year1945{
