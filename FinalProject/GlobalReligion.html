@@ -8,7 +8,6 @@
     <script src="https://unpkg.com/topojson@3"></script>
     <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
     <link rel="stylesheet" href="globalReligion.css ">
-    <script src="globalReligion.js"></script>
     <link rel="stylesheet" href="sliderStyle.css">
 </head>
 
@@ -171,8 +170,6 @@
             d3.select(".slider")
             .on("input", function () {
                 selectedYear = d3.select(this).node().value;
-
-                console.log(selectedYear);
                 latestData = data.filter(function (d) {
                     return d.year == selectedYear;
                 });
