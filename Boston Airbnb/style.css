@@ -1,0 +1,137 @@
+#container {
+  height: 100%;
+}
+
+#left-container {
+  display: inline-block;
+  height:auto;
+  vertical-align: top;
+  text-align:left;
+  box-sizing: border-box;
+}
+
+#right-container {
+  display: inline-block;
+  height:auto;
+  vertical-align: top;
+  text-align:left;
+  box-sizing: border-box;
+  width:100%;
+}
+
+#Beeswarm {
+  position:relative;
+  width:100%;
+  min-width: 800px;
+}
+
+button:focus {
+  outline:0;
+  background: #0000ff;
+  color:white;
+}
+
+.tooltip {
+  position: absolute;
+  width:300px;
+  height:auto;
+  visibility:hidden;
+  padding: 10px;
+  font: 15px sans-serif;
+  background: rgb(255, 253, 243);
+  border: 2px solid #0000ff;
+  border-radius: 8px;
+  pointer-events: all;
+}
+
+body {
+  margin-top: 50px;
+  margin-bottom: 100px;
+  margin-right: 100px;
+  margin-left: 100px;
+  text-align: center;
+  font-family: "Merriweather", serif;
+}
+
+h1 {
+    font-size: 40px;
+    padding-top: 30px;
+    margin: 10px 0px 2px 0px;
+    font-family: 'Libre Baskerville';
+    font-weight: 100;
+    color: white;
+    }
+
+#p1 {
+  color:#FF5A5F;
+}
+
+p {
+    padding-top: 12px;
+    font-size: 15px;
+    font-family: 'roboto';
+    text-align: left;
+    width: 100%;
+    display: inline-block;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    max-width: 800px;
+}
+
+.legend {
+  align-items: left;
+  height: auto;
+}
+
+.x-Axis text {
+  fill: white;
+  font-size: 12px;
+}
+
+.y-Axis text{
+  fill:white;
+  font-size: 12px;
+}
+
+.ammenity {
+    display : flex;
+    flex-direction : row;
+    margin-right:100px;
+}
+
+button {
+  border: none;
+  color: black;
+  padding: 15px 26px;
+  text-align: center;
+  display: inline-block;
+  font-size: 14px;
+  margin: 20px 10px 5px 0px;
+  cursor: pointer;
+  background-color: rgb(255, 253, 243);
+  border-radius: 12px;
+}
+
+.buttons.active{
+  background-color: red;
+  }
+    
+body {
+    font-family: 'roboto', sans-serif;
+    background-color:white;
+    font-size: 18px;
+  }
+   
+.legend {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 100;
+    font-size:14px;
+    opacity:0.8;
+    fill: #778287;
+    padding-top: 20px;
+  }
+
+path.domain {
+  stroke: none;
+}
