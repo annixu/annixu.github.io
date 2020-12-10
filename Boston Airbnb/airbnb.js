@@ -46,7 +46,7 @@ d3.csv("listings 2.csv").then(function(data) {
       .data(data)
       .enter()
       .append("circle")
-        .attr("r",1.5)
+        .attr("r",2.5)
         .attr("class",function (d) { return })
         .attr("fill", function (d) { return colors(d.room_type); })
         .attr("cx", function(d) { return xScale(d["Bed&Bath"]); })

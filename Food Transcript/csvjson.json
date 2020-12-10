@@ -1,0 +1,652 @@
+[
+  {
+    "Keyword": "god",
+    "Frequency": 5,
+    "Category": "Culture"
+  },
+  {
+    "Keyword": "religion",
+    "Frequency": 3,
+    "Category": "Culture"
+  },
+  {
+    "Keyword": "tradition",
+    "Frequency": 3,
+    "Category": "Culture"
+  },
+  {
+    "Keyword": "culture",
+    "Frequency": 12,
+    "Category": "Culture"
+  },
+  {
+    "Keyword": "church",
+    "Frequency": 12,
+    "Category": "Culture"
+  },
+  {
+    "Keyword": "music",
+    "Frequency": 12,
+    "Category": "Culture"
+  },
+  {
+    "Keyword": "clinic",
+    "Frequency": 9,
+    "Category": "Culture"
+  },
+  {
+    "Keyword": "village",
+    "Frequency": 9,
+    "Category": "Culture"
+  },
+  {
+    "Keyword": "school",
+    "Frequency": 8,
+    "Category": "Culture"
+  },
+  {
+    "Keyword": "society",
+    "Frequency": 6,
+    "Category": "Culture"
+  },
+  {
+    "Keyword": "education",
+    "Frequency": 5,
+    "Category": "Culture"
+  },
+  {
+    "Keyword": "food",
+    "Frequency": 127,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "diet",
+    "Frequency": 38,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "sugar",
+    "Frequency": 23,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "vegetable",
+    "Frequency": 18,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "mutton flap",
+    "Frequency": 17,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "fish",
+    "Frequency": 16,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "turkey tail",
+    "Frequency": 16,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "fruit",
+    "Frequency": 14,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "meat",
+    "Frequency": 14,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "corn",
+    "Frequency": 13,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "coke",
+    "Frequency": 13,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "soda",
+    "Frequency": 13,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "drink",
+    "Frequency": 12,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "syrup",
+    "Frequency": 10,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "junk food",
+    "Frequency": 9,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "nutrition",
+    "Frequency": 8,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "taro",
+    "Frequency": 7,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "chicken",
+    "Frequency": 6,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "cola",
+    "Frequency": 6,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "coconut",
+    "Frequency": 6,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "lunch",
+    "Frequency": 5,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "water",
+    "Frequency": 5,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "calorie",
+    "Frequency": 5,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "agriculture",
+    "Frequency": 5,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "cooking",
+    "Frequency": 4,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "avocado",
+    "Frequency": 4,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "restaurant",
+    "Frequency": 4,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "chef",
+    "Frequency": 4,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "consumption",
+    "Frequency": 4,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "veggie",
+    "Frequency": 4,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "feasting",
+    "Frequency": 3,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "cuisine",
+    "Frequency": 3,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "salt",
+    "Frequency": 3,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "watermelon",
+    "Frequency": 3,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "oil",
+    "Frequency": 3,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "beef",
+    "Frequency": 3,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "feast",
+    "Frequency": 3,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "dinner",
+    "Frequency": 3,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "cocoa",
+    "Frequency": 3,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "fructose",
+    "Frequency": 7,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "crop",
+    "Frequency": 7,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "meal",
+    "Frequency": 6,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "coca",
+    "Frequency": 6,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "cook",
+    "Frequency": 6,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "butt",
+    "Frequency": 5,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "chip",
+    "Frequency": 4,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "process",
+    "Frequency": 4,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "onion",
+    "Frequency": 1,
+    "Category": "Food"
+  },
+  {
+    "Keyword": "failure",
+    "Frequency": 5,
+    "Category": "Health"
+  },
+  {
+    "Keyword": "cancer",
+    "Frequency": 5,
+    "Category": "Health"
+  },
+  {
+    "Keyword": "sepsis",
+    "Frequency": 5,
+    "Category": "Health"
+  },
+  {
+    "Keyword": "kg",
+    "Frequency": 5,
+    "Category": "Health"
+  },
+  {
+    "Keyword": "toe",
+    "Frequency": 3,
+    "Category": "Health"
+  },
+  {
+    "Keyword": "limb",
+    "Frequency": 3,
+    "Category": "Health"
+  },
+  {
+    "Keyword": "jaws",
+    "Frequency": 3,
+    "Category": "Health"
+  },
+  {
+    "Keyword": "impairment",
+    "Frequency": 3,
+    "Category": "Health"
+  },
+  {
+    "Keyword": "nurse",
+    "Frequency": 3,
+    "Category": "Health"
+  },
+  {
+    "Keyword": "amputation",
+    "Frequency": 3,
+    "Category": "Health"
+  },
+  {
+    "Keyword": "gland",
+    "Frequency": 3,
+    "Category": "Health"
+  },
+  {
+    "Keyword": "finger",
+    "Frequency": 3,
+    "Category": "Health"
+  },
+  {
+    "Keyword": "diabetes",
+    "Frequency": 61,
+    "Category": "Health"
+  },
+  {
+    "Keyword": "health",
+    "Frequency": 58,
+    "Category": "Health"
+  },
+  {
+    "Keyword": "obesity",
+    "Frequency": 49,
+    "Category": "Health"
+  },
+  {
+    "Keyword": "disease",
+    "Frequency": 35,
+    "Category": "Health"
+  },
+  {
+    "Keyword": "weight",
+    "Frequency": 23,
+    "Category": "Health"
+  },
+  {
+    "Keyword": "doctor",
+    "Frequency": 20,
+    "Category": "Health"
+  },
+  {
+    "Keyword": "fat",
+    "Frequency": 15,
+    "Category": "Health"
+  },
+  {
+    "Keyword": "hospital",
+    "Frequency": 14,
+    "Category": "Health"
+  },
+  {
+    "Keyword": "blood",
+    "Frequency": 13,
+    "Category": "Health"
+  },
+  {
+    "Keyword": "dialysis",
+    "Frequency": 13,
+    "Category": "Health"
+  },
+  {
+    "Keyword": "foot",
+    "Frequency": 12,
+    "Category": "Health"
+  },
+  {
+    "Keyword": "diabete",
+    "Frequency": 11,
+    "Category": "Health"
+  },
+  {
+    "Keyword": "crisis",
+    "Frequency": 10,
+    "Category": "Health"
+  },
+  {
+    "Keyword": "body",
+    "Frequency": 9,
+    "Category": "Health"
+  },
+  {
+    "Keyword": "heart",
+    "Frequency": 9,
+    "Category": "Health"
+  },
+  {
+    "Keyword": "death",
+    "Frequency": 7,
+    "Category": "Health"
+  },
+  {
+    "Keyword": "infection",
+    "Frequency": 7,
+    "Category": "Health"
+  },
+  {
+    "Keyword": "kilo",
+    "Frequency": 7,
+    "Category": "Health"
+  },
+  {
+    "Keyword": "kidney",
+    "Frequency": 6,
+    "Category": "Health"
+  },
+  {
+    "Keyword": "pound",
+    "Frequency": 6,
+    "Category": "Health"
+  },
+  {
+    "Keyword": "complication",
+    "Frequency": 5,
+    "Category": "Health"
+  },
+  {
+    "Keyword": "medicine",
+    "Frequency": 5,
+    "Category": "Health"
+  },
+  {
+    "Keyword": "expectancy",
+    "Frequency": 5,
+    "Category": "Health"
+  },
+  {
+    "Keyword": "gynecologist",
+    "Frequency": 1,
+    "Category": "Health"
+  },
+  {
+    "Keyword": "intrauterine",
+    "Frequency": 1,
+    "Category": "Health"
+  },
+  {
+    "Keyword": "sleep",
+    "Frequency": 3,
+    "Category": "Lifestyle"
+  },
+  {
+    "Keyword": "farming",
+    "Frequency": 3,
+    "Category": "Lifestyle"
+  },
+  {
+    "Keyword": "zumba",
+    "Frequency": 3,
+    "Category": "Lifestyle"
+  },
+  {
+    "Keyword": "fitness",
+    "Frequency": 3,
+    "Category": "Lifestyle"
+  },
+  {
+    "Keyword": "fisherman",
+    "Frequency": 3,
+    "Category": "Lifestyle"
+  },
+  {
+    "Keyword": "eating",
+    "Frequency": 3,
+    "Category": "Lifestyle"
+  },
+  {
+    "Keyword": "lifestyle",
+    "Frequency": 21,
+    "Category": "Lifestyle"
+  },
+  {
+    "Keyword": "community",
+    "Frequency": 14,
+    "Category": "Lifestyle"
+  },
+  {
+    "Keyword": "mom",
+    "Frequency": 3,
+    "Category": "People"
+  },
+  {
+    "Keyword": "daughter",
+    "Frequency": 3,
+    "Category": "People"
+  },
+  {
+    "Keyword": "mama",
+    "Frequency": 3,
+    "Category": "People"
+  },
+  {
+    "Keyword": "people",
+    "Frequency": 92,
+    "Category": "People"
+  },
+  {
+    "Keyword": "population",
+    "Frequency": 18,
+    "Category": "People"
+  },
+  {
+    "Keyword": "child",
+    "Frequency": 12,
+    "Category": "People"
+  },
+  {
+    "Keyword": "farmer",
+    "Frequency": 11,
+    "Category": "People"
+  },
+  {
+    "Keyword": "woman",
+    "Frequency": 11,
+    "Category": "People"
+  },
+  {
+    "Keyword": "american",
+    "Frequency": 10,
+    "Category": "People"
+  },
+  {
+    "Keyword": "minister",
+    "Frequency": 10,
+    "Category": "People"
+  },
+  {
+    "Keyword": "kid",
+    "Frequency": 8,
+    "Category": "People"
+  },
+  {
+    "Keyword": "samoans",
+    "Frequency": 8,
+    "Category": "People"
+  },
+  {
+    "Keyword": "man",
+    "Frequency": 8,
+    "Category": "People"
+  },
+  {
+    "Keyword": "americans",
+    "Frequency": 8,
+    "Category": "People"
+  },
+  {
+    "Keyword": "tongans",
+    "Frequency": 7,
+    "Category": "People"
+  },
+  {
+    "Keyword": "mother",
+    "Frequency": 7,
+    "Category": "People"
+  },
+  {
+    "Keyword": "generation",
+    "Frequency": 7,
+    "Category": "People"
+  },
+  {
+    "Keyword": "samoan",
+    "Frequency": 6,
+    "Category": "People"
+  },
+  {
+    "Keyword": "girl",
+    "Frequency": 6,
+    "Category": "People"
+  },
+  {
+    "Keyword": "husband",
+    "Frequency": 5,
+    "Category": "People"
+  },
+  {
+    "Keyword": "worker",
+    "Frequency": 4,
+    "Category": "People"
+  },
+  {
+    "Keyword": "person",
+    "Frequency": 3,
+    "Category": "People"
+  },
+  {
+    "Keyword": "guy",
+    "Frequency": 3,
+    "Category": "People"
+  },
+  {
+    "Keyword": "ban",
+    "Frequency": 5,
+    "Category": "Policy"
+  },
+  {
+    "Keyword": "policy",
+    "Frequency": 3,
+    "Category": "Policy"
+  },
+  {
+    "Keyword": "wto",
+    "Frequency": 7,
+    "Category": "Policy"
+  }
+]
