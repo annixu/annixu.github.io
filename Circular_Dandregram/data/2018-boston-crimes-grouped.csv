@@ -1,6 +1,6 @@
 OFFENSE_CODE_GROUP,DAY_OF_WEEK,count
-Larceny,Friday,902
-Larceny,Monday,865
+Larceny,Friday,902, 
+Larceny,Monday,865, 
 Larceny,Saturday,857
 Larceny,Sunday,712
 Larceny,Thursday,899

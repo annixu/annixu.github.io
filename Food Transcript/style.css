@@ -34,9 +34,8 @@ body {
         box-sizing: border-box;
         flex: 1 0 30%;
       }
-
+/*
 #vis {
-    /* float: center; */
     width: 80%;
     padding-left: 50px;
     padding-top: 30px;;
@@ -45,8 +44,29 @@ body {
     text-align:left;
     box-sizing: border-box;
     flex: 1 0 70%;
+}*/
+
+* {
+  box-sizing: border-box;
 }
 
+#chart {
+  flex: 1 0 70%;
+  height: 100vh;
+}
+
+.tooltip {
+    position: absolute;
+    left: 100px;
+    top: 40%;
+    max-width: 30%;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 16pt;
+    background-color:rgba(92, 68, 213, 0.4);
+    padding: 2px;
+    pointer-events: none;
+}
 
 /* .node circle {
     fill: #999;

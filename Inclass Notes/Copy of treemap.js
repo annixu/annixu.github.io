@@ -1,4 +1,6 @@
-d3.csv("./data/2018-boston-crimes-grouped.csv").then(function(data) {
+
+
+d3.csv("./data/Clean_foodTranscript.csv").then(function(data) {
 
     /* TASK 1
 
@@ -27,7 +29,7 @@ d3.csv("./data/2018-boston-crimes-grouped.csv").then(function(data) {
         .append("svg")
         .attr("width", width)
         .attr("height", height);
-
+    const g = svg.append("g").attr("transform", "translate(" + (width / 2 - 15) + "," + (height / 2 + 25) + ")");
 
     /*
     TRANSFORM THE DATA
@@ -57,7 +59,7 @@ d3.csv("./data/2018-boston-crimes-grouped.csv").then(function(data) {
 
     */
 
-    const grouped = d3.group(data, function(d) { return d.OFFENSE_CODE_GROUP; }, function(d) { return d.DAY_OF_WEEK; });
+    const grouped = d3.group(data, function(d) { return d.Category; });
 
     /* Examine the data structure of `grouped`: What do you observe about the structure? */
     console.log(grouped);
@@ -79,10 +81,14 @@ d3.csv("./data/2018-boston-crimes-grouped.csv").then(function(data) {
 
     */
     
-    const treemap = d3.treemap()
-        .size([width, height])
-        .padding(1);
+    // const treemap = d3.treemap()
+    //     .size([width, height])
+    //     .padding(1);
     
+
+    tree = d3.cluster().size([2 * Math.PI, height/2 - 100])
+
+
     /*
     CREATE THE HIERARCHY
 
@@ -104,10 +110,16 @@ d3.csv("./data/2018-boston-crimes-grouped.csv").then(function(data) {
     */  
 
     const hierarchy = d3.hierarchy(grouped)
-        .sum(function(d) { return +d.count; });
+        .sum(function(d) { return +d.Frequency; });
 
     /* Look at the data structure! What do you see? */
     console.log(hierarchy);
+
+    const Categories = ["Food", "Health", "Lifestyle", "People", "Policy", "Culture"]
+
+    const colors = d3.scaleOrdinal()
+      .domain(Categories)
+      .range(["#CA3B7E", "#F5B63F", "#5ECEC1", "#556EF2", "#F1D4CE", "#B7DACB"]);
 
     /* TASK 3
 
@@ -118,9 +130,6 @@ d3.csv("./data/2018-boston-crimes-grouped.csv").then(function(data) {
     */
 
 
-
-
-
     /* 
     GENERATE THE ROOT HIERARCHY
     By passing in our hierarchical data structure into our treemap() function,
@@ -128,12 +137,12 @@ d3.csv("./data/2018-boston-crimes-grouped.csv").then(function(data) {
 
     */
 
-    const root = treemap(hierarchy);
+    // const root = treemap(hierarchy);
 
     /* Look at the data structure! What do you see? */
-    console.log(root);
-    console.log(root.leaves());
-
+    // console.log(root);
+    // console.log(root.leaves());
+    const root = tree(hierarchy);
     /*
     DRAW THE RECTANGLES FOR THE TREEMAP
     We will use our `root` structure, from above, to draw the rectangles for the treemap;
@@ -141,18 +150,18 @@ d3.csv("./data/2018-boston-crimes-grouped.csv").then(function(data) {
     (What does this return? Inspect the structure in the JS console)
     */
 
-    const color = d3.scaleOrdinal(d3.schemeDark2);
+    // const color = d3.scaleOrdinal(d3.schemeDark2);
 
-    let rect = svg.selectAll("rect")
-        .data(root.leaves())
-        .enter()
-        .append("rect")
-            .attr("x", function (d) { return d.x0; })
-            .attr("y", function (d) { return d.y0; })
-            .attr("width", function (d) { return d.x1 - d.x0; })
-            .attr("height", function (d) { return d.y1 - d.y0; })
-            .attr("stroke", "#FFFFFF")
-            .attr("fill", function(d) {
+    // let rect = svg.selectAll("rect")
+    //     .data(root.leaves())
+    //     .enter()
+    //     .append("rect")
+    //         .attr("x", function (d) { return d.x0; })
+    //         .attr("y", function (d) { return d.y0; })
+    //         .attr("width", function (d) { return d.x1 - d.x0; })
+    //         .attr("height", function (d) { return d.y1 - d.y0; })
+    //         .attr("stroke", "#FFFFFF")
+    //         .attr("fill", function(d) {
                 /* The fill color of each rectangle is being based
                 on the value of OFFENSE_CODE_GROUP associated with
                 each rectangle.
@@ -162,8 +171,8 @@ d3.csv("./data/2018-boston-crimes-grouped.csv").then(function(data) {
 
                 */
 
-                return color(d.data.OFFENSE_CODE_GROUP);
-            });
+            //     return color(d.data.Category);
+            // });
 
 
 
@@ -181,15 +190,15 @@ d3.csv("./data/2018-boston-crimes-grouped.csv").then(function(data) {
     We can join the same root.leaves(), used to create the rectangles, to a new selection
     to generate text labels for the rectangles.
     */
-    svg.selectAll("text")
-        .data(root.leaves())
-        .enter()
-        .append("text")
-            .attr("x", function(d){ return d.x0+10})    // +10 to adjust position (more right)
-            .attr("y", function(d){ return d.y0+20})    // +20 to adjust position (lower)
-            .attr("font-size", "15px")
-            .attr("fill", "white")
-            .text(function(d){ return d.data.OFFENSE_CODE_GROUP; });
+    // svg.selectAll("text")
+    //     .data(root.leaves())
+    //     .enter()
+    //     .append("text")
+    //         .attr("x", function(d){ return d.x0+10})    // +10 to adjust position (more right)
+    //         .attr("y", function(d){ return d.y0+20})    // +20 to adjust position (lower)
+    //         .attr("font-size", "15px")
+    //         .attr("fill", "white")
+    //         .text(function(d){ return d.data.OFFENSE_CODE_GROUP; });
 
     /* TASK 5
 
@@ -198,4 +207,65 @@ d3.csv("./data/2018-boston-crimes-grouped.csv").then(function(data) {
     in your data set
 
     */
+
+// Creates radial chart
+
+   g.append("g")
+   .attr("fill", "none")
+   .attr("stroke", "#555")
+   .attr("stroke-opacity", 0.4)
+   .attr("stroke-width", 1.5)
+   .selectAll("path")
+   .data(root.links())
+   .join("path")
+   .attr("d", d3.linkRadial()
+       .angle(d => d.x)
+       .radius(d => d.y))
+//    .attr("transform", d => `
+//     translate(${200}, ${400})
+//    `);
+
+g.append("g")
+ .selectAll("circle")
+ .data(root.descendants())
+ .join("circle")
+   .attr("transform", d => `
+     rotate(${d.x * 180 / Math.PI - 90})
+     translate(${d.y},0)
+   `)
+//    .attr("fill", d => d.children ? "#555" : "#999")
+   .attr("fill", function (d) { return colors(d.Categories); })
+   .attr("r", function(d) { return (d.data.Frequency)} )
+    ;
+
+g.append("g")
+   .attr("font-family", "sans-serif")
+   .attr("font-size", 10)
+   .attr("stroke-linejoin", "round")
+   .attr("stroke-width", 3)
+    .selectAll("text")
+    .data(root.descendants())
+    .join("text")
+   .attr("transform", d => `
+     rotate(${d.x * 180 / Math.PI - 90}) 
+     translate(${d.y},0) 
+     rotate(${d.x >= Math.PI ? 180 : 0})
+   `)
+   .attr("dy", "0.31em")
+   .attr("x", d => d.x < Math.PI === !d.children ? 6 : -6)
+   .attr("text-anchor", d => d.x < Math.PI === !d.children ? "start" : "end")
+   .text(function(d) {
+       console.log(d.depth,d.data)
+
+       if (d.depth == 2) {
+        return d.data.Keyword;
+       } else if (d.depth == 1) {
+        return d.data[0];
+       }
+       
+   })
+   .clone(true).lower()
+   .attr("stroke", "white");
+
+  //svg.attr("viewBox", autoBox).node();
 });
