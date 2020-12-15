@@ -1,22 +1,47 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <!-- <meta charset="utf-8" /> -->
-    <title>My Cool index page</title>
-    <script src="https://d3js.org/d3.v4.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="stylesheet" href="indexStyle.css">
-</head>
+  <head>
+      <meta charset="utf-8">
+      <title>Boston Airbnb with $100 or less</title>
+      <script src="https://d3js.org/d3.v6.min.js"></script>
+      <link rel="stylesheet" href="style.css">
+  </head>
 
-<div id=container>
-    <h1 id=title>Anni's Final Project</h1>
+  <body style="background-color:#13121f;">
 
-    <div style="text-align: center;">
-        <a href="FinalProject/GlobalReligion.html">Global Religion across 65 Years with GeoMap</a>
+  <div id="container">
+    <div id="left-container">
+    
+      <h1> Explore Boston <span id="p1">Airbnb</span> listings with $100 or less </h1>
+      <p>What can you get with less than $100 budget to spend on Airbnb in Boston? This is a beesworm data visualization of Airbnb listings in different neightborhoods of Boston by Bed and Bath types. Each circle represents an Airbnb listing that are color-coded by the room types, and contains information like the URL, price, accommodation, and amenities. 
+
+      <br><br>The dashboard can be used as a exploration tool for low-budget listings in Boston, and as a visualization to see listing patterns among different neighborhoods. The data used is taken from the Boston Airbnb Open Data and might include outdated links for some listings urls. 
+      
+      <div class="legend">
+        <svg width="400" height="35"><g transform="translate (10,15)">
+          <circle r="5" fill="#CA3B7E"></circle>
+          <text fill="white" transform="translate (12,4)" >Entire home/Apartment</text>  
+          <circle r="5" transform="translate (180,0)" fill="#F5B63F"></circle>
+          <text fill="white" transform="translate (190,4)">Private Room</text>
+          <circle r="5" transform="translate (300,0)" fill = "#5ECEC1"></circle>
+          <text fill="white" transform="translate (310,4)"> Shared room</text></g>
+        </svg>
+      </div>
+
+      <div class="buttons">
+        <button type="button" id="total">Total</button>
+        <button type="button" id="by-neighborhood">By Neighborhoods</button>
+      </div>
     </div>
 
-</div>
+    <div id="right-container" class="container">
+      <div id = Beeswarm> </div>
 
+      <script src="airbnb.js"></script>
+
+    </div>
+  </div>
+
+  </body>
 </html>
