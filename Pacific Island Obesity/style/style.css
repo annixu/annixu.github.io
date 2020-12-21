@@ -21,8 +21,7 @@ body {
 #main {
   display: inline-block;
   padding-left: 50px;
-  padding-top: 40px;
-  ;
+  padding-top: 30px;
   height: auto;
   vertical-align: top;
   text-align: left;
@@ -50,13 +49,13 @@ h1 {
 }
 
 p {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .tooltip {
   position: absolute;
-  left: 50px;
-  top: 60%;
+  left: 45px;
+  top: 50%;
   max-width: 30%;
   border-radius: 10px;
   font-family: "Helvetica Neue", sans-serif;
@@ -67,6 +66,14 @@ p {
   padding: 15px;
   pointer-events: none;
   cursor: pointer;
+}
+
+#tooltip-image {
+  margin-top:20px;
+  /* height:20%; */
+  max-height: 140px;
+  width: auto;
+  /* width: 80%; */
 }
 
 .context {

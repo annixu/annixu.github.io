@@ -3,7 +3,7 @@ Culture,god,5,"Families joining together to eat big meals every Sunday and for i
 Culture,religion,3,Our religion does have a lot of impact on the lifestyle of the people and whatever the Ministry says
 Culture,tradition,3,Traditional food has been replaced by cheap foods high in calories but with little nutritional value. 
 Culture,culture,12,Providing bountiful food is a sign of respect a culture hard to combat if you have a guest coming to your house and you're welcome …
-Culture,church,12,"He's among many who criticise church leaders for failing to set a good example to their parishioners.<br>Eventually she had the leg amputated, and this year received a prosthetic leg from the Mormon church.<br>The Government needs to work with the churches because a major part of the Government budget is health sectors and the quicker they can turn around the lifestyle the less money they spend on the health sectors.<br>...church members will eat three meals a day each prepared by a different congregation or village they are showing some restraint in previous years that you see four meals a day. "
+Culture,church,12,"Eventually she had the leg amputated, and this year received a prosthetic leg from the Mormon church.<br>...church members will eat three meals a day each prepared by a different congregation or village they are showing some restraint in previous years that you see four meals a day. "
 Culture,clinic,9,"Clinic walls are covered with government posters warning of the dangers of junk food but despite her poor health.<br>""If you consider the reduction in life expectancy as a big issue these are crisis the hospital clinic treat sepsis missing toes and foot ulcers every day one in ten Tommen's are diabetic ..."""
 Culture,village,9,"To overcome the lack of access to green vegetables many villages are setting up communal gardens.<br>Zumba is now the most popular exercise in Samoan villages."
 Culture,school,8,"I grew up in a society that you go to school with a coconut in one hand and a pawpaw in the other hand.<br>""… in the 50 60 s when we come back from school and fishing here to do is go out in the plantations to fetch our food or to go out fishing…"""
@@ -14,7 +14,7 @@ Food,food,127,"Now Samoa is dependent on imported food. Tin meats, noodles, swee
 It's about getting enough of the right foods out there ...that are available and cheap. "
 Food,diet,38,It has been more rapid in the Pacific Islands because of how quickly the change in diet and lifestyle has occurred.
 Food,sugar,23,"Until recently he was drinking two liters of sugar packed fizzy drink every day...<br>If she doesn't cut down on sugar she risks losing her baby have you changed your diet since you had diabetes…"
-Food,vegetable,18,"Very small supply of green leafy vegetables available locally, everything had to be imported from the other Island, or even from overseas at times.<br>It says many Pacific islanders have replaced their traditional diets of vegetables and fruits with imported processed foods.<br>It was a wake up call for us, to save the whole leg by teaching and making a lot of food with vegetables.<br>The problem in Samoa is it's very hard to obtain vegetables, the original diet, nuts, fruits, and grains."
+Food,vegetable,18,"Very small supply of green leafy vegetables available locally, everything had to be imported from the other Island...<br>It says many Pacific islanders have replaced their traditional diets of vegetables and fruits with imported processed foods.<br>The problem in Samoa is it's very hard to obtain vegetables, the original diet, nuts, fruits, and grains."
 Food,mutton flap,17,"""And you have a situation where fishermen spear their fish - sell it - and go and buy mutton flaps. People don't have the education to know what is bad for their health.""
 <br>There's this whole generation in Tonga that was brought up on mutton flaps,""
 In the last few decades mutton flaps from New Zealand have become a Samoan favourite there's a lot of fat."
@@ -26,7 +26,7 @@ Food,meat,14,"Thanks to the spread of Western fast food, diets which a generatio
 Food,coke,13,"""In some of the places, you'd be amazed to see how a bottle of Coke is cheaper than a bottle of water…"""
 Food,soda,13,"she's struggling to cut back on sweet drinks. ""Soda was my addiction if I don't want to eat as long as I have soda I'm good.""
  "
-Food,drink,12,"Recently he was drinking two liters of sugar packed fizzy drink every day.<br>Kids are given money and they go to the canteen and the only thing want is a very cheap soft drink, pie and chips because that's what they like eating…"
+Food,drink,12,"... he was drinking two liters of sugar packed fizzy drink every day.<br>Kids are given money and they go to the canteen and the only thing want is a very cheap soft drink, pie and chips because that's what they like eating…"
 Food,junk food,9,...people can afford it so we see a lot of these people going out to the market or buying food junk food takeaways
 Food,nutrition,8,"He says many of the imported products lack nutritional value. But they are widely available, he says, and often cost less than healthier foods."
 Food,taro,7,"Traditionally young men did most of the cooking. The diet was heavy in starch, taro and bread fruit."
@@ -54,7 +54,7 @@ Food,cook,6,"The boys don't like cooking and they love fatty foods like McDonald
 ...you know it's easily available it's relatively cheap and so people it's easy for them to open a can of beef and cook it often they can use it to feed quite a few people. "
 Food,chip,4,"Cena's family bring her a plate of chips and mutton flaps for lunch it's a frustrating for you to see your patients sitting outside eating the foods that are on the warning posters inside the clinic… 
 <br>Kids are given money and they go to the canteen and the only thing want is a very cheap soft drink, pie and chips because that's what they like eating. "
-Food,process,4,"Thanks to the spread of Western fast food, diets which a generation ago largely consisted of fish and coconuts are now dominated by processed meat. 
+Food,processed,4,"Thanks to the spread of Western fast food, diets which a generation ago largely consisted of fish and coconuts are now dominated by processed meat. 
 Islanders who once existed on fish and vegetables are now eating imported processed food high in salt. "
 Health,failure,5,"if the patient deteriorates specialist healthcare for cancers and kidney failure are non-existent dialysis gives you an extended lifespan… 
 Amputations and heart disease are at record levels in Thomas hospitals in a health system with no facilities to deal with kidney failure... "
@@ -85,7 +85,6 @@ Health,hospital,14,"the hospital runs weekly exercise classes to encourage a hea
 Health,blood,13,She is a diabetic and comes here so we can check her blood sugars so she doesn't end up on dialysis because our dialysis is already full up. 
 Health,dialysis,13,This patient is not keen for dialysis so we're monitoring him in our clinics making sure his sugar is well controlled. 
 Health,foot,12,...if you consider the reduction in life expectancy as a big issue these are crisis the hospital clinic treat sepsis missing toes and foot… 
-Health,diabete,11,Samoas hospitals is on the rise they're being treated for problems like diabetes hypertension and cancer… 
 Health,crisis,10,Samoan Islands shows how obesity is no longer an issue that affects only wealthy countries it's a global health crisis… 
 Health,body,9,...he's seen a huge change there's three foot wide coffin can hold a body weighing up to 35 stone but for garloo tells us often the body's coming through here are so big a special coffin has to be made. 
 Health,heart,9,Diabetes complications including heart disease and blindness develop slowly. 

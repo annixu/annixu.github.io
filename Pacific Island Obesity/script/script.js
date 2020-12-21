@@ -93,12 +93,30 @@ d3.csv("./data&image/Clean_foodTranscript.csv").then(function (data) {
     const tooltip = d3.select("#chart")
         .append("div")
         .attr("class", "tooltip");
+    
+    function updateImage(imageName) {
+        imgUrl = "images/" + imageName;
+        var tester=new Image();
+        tester.onload=function() { // when .png ok
+            document.getElementById("tooltip-image").src = imgUrl + '.png';
+        };
+        tester.onerror=function() { // when .png failed
+            document.getElementById("tooltip-image").src = imgUrl + '.jpg';      
+        };
+        tester.src=imgUrl + '.png'; // execute the test
+    }
 
-    circles.on("mouseover", function (e, d) {
+   circles.on("mouseover", function (e, d) {
         d3.select(this).attr("stroke-width", 2)
             .attr("stroke", "blue")
 
-        tooltip.html(`<b>Keyword: </b>${d.data.Keyword}<br> <br></b> <div class = "context"> ${d.data.Context.replace(/<br>/g, "<span class = 'spacer'></span>")}</div>`)
+        tooltip.html(`<b>Keyword: </b>${d.data.Keyword}
+        <br> <br>
+        </b> <div class = "context"> ${d.data.Context.replace(/<br>/g, "<span class = 'spacer'></span>")}
+        <br><img id="tooltip-image" src="images/${d.data.Keyword}.png" alt="placeholder" width="100%">
+        </div>`);
+        // Checks if png or jpg image should exist.
+        updateImage(d.data.Keyword);
     }).on("mouseout", function () {
         d3.select(this).attr("stroke-width", 0)
     })
